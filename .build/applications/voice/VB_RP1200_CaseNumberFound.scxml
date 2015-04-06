@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by Exporter version 1.0 at 2015-04-06 09:45:11.281 GMT-4--><!--Note: Components marked as 'debug' have been removed from the call flow.--><scxml xmlns:icview="http://www.intervoice.com/sce/icview"
+       xmlns:jms="http://www.intervoice.com/sce/action/jms"
+       xmlns:mim="http://www.intervoice.com/sce/action/mim"
+       xmlns:scripting="http://www.intervoice.com/sce/action/scripting"
+       xmlns:xs="http://www.w3.org/2001/XMLSchema"
+       xmlns:process="http://www.intervoice.com/sce/action/process"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:gtfns="http://www.intervoice.com/gtfns/1.0"
+       xmlns="http://www.w3.org/2007/02/scxml"
+       xmlns:icxml="http://www.intervoice.com/icxml"
+       xmlns:xmi="http://www.omg.org/XMI"
+       xmlns:intv="http://www.intervoice.com/scxml"
+       xmlns:vca="http://www.intervoice.com/sce/action/vca"
+       xmlns:ex="http://www.intervoice.com/exporter"
+       initialstate="documentEntry"
+       intv:worksheetscope="applications/voice/Worksheet.ws"
+       version="1.0">
+   <state id="documentEntry">
+      <initial>
+         <transition target="documentEntry_doLocalInit"/>
+      </initial>
+      <state id="documentEntry_doLocalInit">
+         <onentry>
+            <assign location="intv_appType" expr="undefined"/>
+            <rdotype:get xmlns:rdotype="http://www.intervoice.com/sce/action/rdotype"
+                         location="intv_appType"/>
+            <if cond="intv_appType == 'vca'">
+               <assign location="intv_appType" expr="'voice'"/>
+               <elseif cond="intv_appType == 'ccxml'"/>
+               <assign location="intv_appType" expr="'call'"/>
+               <elseif cond="intv_appType == 'UNKNOWN'"/>
+               <assign location="intv_appType" expr="'process'"/>
+            </if>
+         </onentry>
+         <transition target="blockEntry_zaprat"/>
+      </state>
+      <datamodel><!--Variables from declaration block: _ilMxdG9qEeGtte0T2z7rbQ--><data name="intv_appType" expr="undefined"/>
+         <data name="intv_eventName" expr="undefined"/>
+         <data name="intv_eventData" expr="undefined"/>
+         <data name="intv_noFieldsInitialized" expr="undefined"/>
+         <data name="intv_allFieldsInitialized" expr="undefined"/>
+         <data name="intv_atLeastOneSituationExecuted" expr="undefined"/>
+         <data name="intv_modalities" expr="undefined"/>
+         <data name="dummy" expr="undefined"/>
+         <data name="result" expr="undefined"/>
+      </datamodel>
+      <state id="blockEntry_zaprat">
+         <onentry>
+            <icview:log text="action=entry, type=BlockEntry, name=, id=blockEntry_zaprat, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=BlockEntry, name=, id=blockEntry_zaprat, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition target="subroutineCall_gangic"/>
+      </state>
+      <state id="if_lopmax">
+         <onentry>
+            <icview:log text="action=entry, type=If, name=, id=if_lopmax, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml">
+               <icview:param name="CaseFound" value="_ws.errorCode == '0'"/>
+            </icview:log>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=If, name=, id=if_lopmax, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="_ws.errorCode == '0'" target="calc_wansik">
+            <icview:log text="action=leg:CaseFound, type=If, name=, id=if_lopmax, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+         </transition>
+         <transition cond="true" target="subroutineCall_davvah">
+            <icview:log text="action=leg:default, type=If, name=, id=if_lopmax, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+         </transition>
+      </state>
+      <state id="goToBlock_rednow">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_ID3600_InstrumentTypeCheck.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_rednow, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_rednow, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="goToBlock_tuttij">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_RP2350_TypeOfString.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_tuttij, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_tuttij, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="calc_nepbod">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_nepbod, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <assign location="dummy" expr="_ws.gateKeeper.setBoolean(&#34;GotProductName&#34;,true)"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_nepbod, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true">
+               <icview:result name="dummy" expr="dummy"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_rednow">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="subroutineCall_gangic">
+         <datamodel>
+            <data name="intv_subName"
+                  expr="'/resource/libRocheRSN_ClarifyWS/subroutines/process/caseLookup.diagram'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=SubroutineCall, name=, id=subroutineCall_gangic, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml">
+               <icview:param name="caseID" expr="'TD' + _ws.caseNumber"/>
+               <icview:param name="instanceName2" expr="'RTD'"/>
+            </icview:log>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script><![CDATA[
+					
+						if (intv_subName.search(/^\s*\/resource\/[^\/]+\/subroutines\/[^\/]+\/.+$/) >= 0)
+						{
+							var libName = intv_subName.replace(/^\s*\/resource(\/[^\/]+\/subroutines\/[^\/]+\/).+$/, '$1');
+							
+							if (libName != undefined && libName != '') 
+							{
+								var libMatch = 0;
+								
+								for (var i = _ws.intv_librarySize; i > 0; i--) 
+								{
+									var libEntry = _ws.intv_libraryList[i - 1];
+									
+									if (libEntry == libName) 
+									{
+										libMatch = i;
+										break;
+									}
+								}
+								
+								if (libMatch == 0) 
+								{
+									_ws.intv_libraryList[_ws.intv_librarySize++] = libName;
+								}
+							}
+						}
+					
+				]]></scripting:script>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=SubroutineCall, name=, id=subroutineCall_gangic, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true"/>
+         </onexit>
+         <invoke targettype="x-scxml-component"
+                 src="/libRocheRSN_ClarifyWS/subroutines/process/caseLookup.scxml">
+            <param name="caseID" expr="'TD' + _ws.caseNumber"/>
+            <param name="instanceName2" expr="'RTD'"/>
+         </invoke>
+         <transition event="subroutineCall_gangic.invoke.done"/>
+         <transition event="success" target="script_zewnaf">
+            <assign location="_ws.caseLookupResult" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:success, type=SubroutineCall, name=, id=subroutineCall_gangic, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml">
+               <icview:result name="resultVariable" expr="_ws.caseLookupResult"/>
+            </icview:log>
+         </transition>
+         <transition event="error" target="calc_hobfed">
+            <assign location="_ws.caseLookupResult" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:error, type=SubroutineCall, name=, id=subroutineCall_gangic, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml">
+               <icview:result name="resultVariable" expr="_ws.caseLookupResult"/>
+            </icview:log>
+         </transition>
+      </state>
+      <state id="script_zewnaf">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_zewnaf, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/process/WS_ProcessResult_CaseLookup.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_zewnaf, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="if_lopmax"/>
+      </state>
+      <state id="log_wiqmaq">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=, id=log_wiqmaq, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <log expr="'EVENT: Case Number Not Found.  Case Number: ' + _ws.caseNumber + ' Account Number: ' + _ws.accountNumber + ' Instrument Name: ' + _ws.instrumentName + ' Error Code: ' + _ws.errorCode + ' Error Desc: ' + _ws.errorDesc"
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=, id=log_wiqmaq, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_gaccow">
+            <icview:log text="action=leg:default, type=Log, name=, id=log_wiqmaq, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+         </transition>
+      </state>
+      <state id="calc_hobfed">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Notes, id=calc_hobfed, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <assign location="_ws.ivrNotes"
+                    expr="' - Case Number Not Found Web Services Error' + _ws.ivrNotes"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Notes, id=calc_hobfed, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_qufqem">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="calc_worxef">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Notes, id=calc_worxef, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <assign location="_ws.ivrNotes"
+                    expr="' - Case Number Not Found. Case Number: ' + _ws.caseNumber + ' Error Code: ' + _ws.errorCode + ' Error Desc: ' + _ws.errorDesc + _ws.ivrNotes"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Notes, id=calc_worxef, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="log_wiqmaq">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="calc_wansik">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Notes, id=calc_wansik, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <assign location="_ws.caseNumber" expr="'TD' + _ws.caseNumber"/>
+            <assign location="_ws.ivrNotes"
+                    expr="_ws.ivrNotes + ' - Case Number Found ' + _ws.caseNumber"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Notes, id=calc_wansik, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true">
+               <icview:result name="_ws.caseNumber" expr="_ws.caseNumber"/>
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="log_jugtoj">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="calc_qufqem">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_qufqem, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <assign location="_ws.caseNumber" expr="''"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_qufqem, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true">
+               <icview:result name="_ws.caseNumber" expr="_ws.caseNumber"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_tuttij">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="subroutineCall_davvah">
+         <datamodel>
+            <data name="intv_subName"
+                  expr="'/resource/libRocheRSN_ClarifyWS/subroutines/process/caseLookup.diagram'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=SubroutineCall, name=, id=subroutineCall_davvah, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml">
+               <icview:param name="caseID" expr="'CA' + _ws.caseNumber"/>
+               <icview:param name="instanceName2" expr="'CAN'"/>
+            </icview:log>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script><![CDATA[
+					
+						if (intv_subName.search(/^\s*\/resource\/[^\/]+\/subroutines\/[^\/]+\/.+$/) >= 0)
+						{
+							var libName = intv_subName.replace(/^\s*\/resource(\/[^\/]+\/subroutines\/[^\/]+\/).+$/, '$1');
+							
+							if (libName != undefined && libName != '') 
+							{
+								var libMatch = 0;
+								
+								for (var i = _ws.intv_librarySize; i > 0; i--) 
+								{
+									var libEntry = _ws.intv_libraryList[i - 1];
+									
+									if (libEntry == libName) 
+									{
+										libMatch = i;
+										break;
+									}
+								}
+								
+								if (libMatch == 0) 
+								{
+									_ws.intv_libraryList[_ws.intv_librarySize++] = libName;
+								}
+							}
+						}
+					
+				]]></scripting:script>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=SubroutineCall, name=, id=subroutineCall_davvah, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true"/>
+         </onexit>
+         <invoke targettype="x-scxml-component"
+                 src="/libRocheRSN_ClarifyWS/subroutines/process/caseLookup.scxml">
+            <param name="caseID" expr="'CA' + _ws.caseNumber"/>
+            <param name="instanceName2" expr="'CAN'"/>
+         </invoke>
+         <transition event="subroutineCall_davvah.invoke.done"/>
+         <transition event="success" target="script_darnoq">
+            <assign location="_ws.caseLookupResult" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:success, type=SubroutineCall, name=, id=subroutineCall_davvah, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml">
+               <icview:result name="resultVariable" expr="_ws.caseLookupResult"/>
+            </icview:log>
+         </transition>
+         <transition event="error" target="calc_hobfed">
+            <assign location="_ws.caseLookupResult" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:error, type=SubroutineCall, name=, id=subroutineCall_davvah, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml">
+               <icview:result name="resultVariable" expr="_ws.caseLookupResult"/>
+            </icview:log>
+         </transition>
+      </state>
+      <state id="script_darnoq">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_darnoq, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/process/WS_ProcessResult_CaseLookup.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_darnoq, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="if_yaspiw"/>
+      </state>
+      <state id="calc_gaccow">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_gaccow, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <assign location="_ws.caseNumber" expr="''"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_gaccow, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true">
+               <icview:result name="_ws.caseNumber" expr="_ws.caseNumber"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_tuttij">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="if_yaspiw">
+         <onentry>
+            <icview:log text="action=entry, type=If, name=, id=if_yaspiw, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml">
+               <icview:param name="CaseFound" value="_ws.errorCode == '0'"/>
+            </icview:log>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=If, name=, id=if_yaspiw, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="_ws.errorCode == '0'" target="calc_towjiv">
+            <icview:log text="action=leg:CaseFound, type=If, name=, id=if_yaspiw, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+         </transition>
+         <transition cond="true" target="calc_worxef">
+            <icview:log text="action=leg:default, type=If, name=, id=if_yaspiw, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+         </transition>
+      </state>
+      <state id="calc_towjiv">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Notes, id=calc_towjiv, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <assign location="_ws.caseNumber" expr="'CA' + _ws.caseNumber"/>
+            <assign location="_ws.ivrNotes"
+                    expr="_ws.ivrNotes + ' - CANADA Case Number Found ' + _ws.caseNumber"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Notes, id=calc_towjiv, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true">
+               <icview:result name="_ws.caseNumber" expr="_ws.caseNumber"/>
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="log_jugtoj">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="log_jugtoj">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=, id=log_jugtoj, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+            <log expr="'EVENT: Case Number Found.  Case Number: ' + _ws.caseNumber + ' Account Number: ' + _ws.accountNumber + ' Instrument Name: ' + _ws.instrumentName + ' Error Code: ' + _ws.errorCode + ' Error Desc: ' + _ws.errorDesc"
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=, id=log_jugtoj, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_nepbod">
+            <icview:log text="action=leg:default, type=Log, name=, id=log_jugtoj, document=/RocheRTD/applications/voice/VB_RP1200_CaseNumberFound.scxml"/>
+         </transition>
+      </state>
+   </state>
+   <final id="documentExit"/>
+</scxml>

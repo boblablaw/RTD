@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+	<audit savedby="JMS Defaults" timestamp="Fri Oct 23 16:15:36 CDT 2009" version="3.0.1.0" />
+	<domain id="com.intervoice.configuration.controlcenter.client" domain-type="SERVICE">
+		<description value="SC Engine - JMS Client for communication with Control Center" />
+        <display-name value="Control Center Client"/>
+		<property key="port" javascript-validators="validateIntegerRange(0, 65535);">
+			<app-value value="60101" />
+			<default-value value="60101" />
+			<description value="JMS port used to communicate with Control Center client" />
+		</property>
+		<property key="RetryConnectionTimeout" javascript-validators="validateIntegerRange(2000, 2147483647);">
+			<app-value value="30000" />
+			<default-value value="30000" />
+			<description value="Timeout value in milliseconds. Specifies how often a connection attempt is made with the Control Center Client's JMS Provider" />
+		</property>
+	</domain>
+</domains>

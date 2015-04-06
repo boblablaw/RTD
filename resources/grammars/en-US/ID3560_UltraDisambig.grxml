@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<grammar version="1.0" 
+	xmlns="http://www.w3.org/2001/06/grammar" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.w3.org/TR/speech-grammar/grammar.xsd" 
+    tag-format='swi-semantics/1.0'
+	xml:lang="en-US" mode="voice" root="root">
+	<!-- ############################################## -->
+	<meta name="Parameters" content="" />
+	<meta name="ASR_Engine" content="Nuance" />
+	<meta name="Language" content="en-us" />
+	<meta name="Description" content="ID3550_XTDisambig grammar" />
+	<meta name="Usage_Notes" content="" />
+	<meta name="Associated_Files" content="" />
+	<meta name="ASR_Version" content="9.x" />
+	<!-- ############################################## -->
+
+<lexicon uri="user_dictionary_en-US.xml?SWI.type=backup"/>
+<rule id="root" scope="public">
+  	
+	<one-of>
+		 <item>
+            <one-of>
+               <item>benchmark ultra</item>
+               <item>benchmark</item>
+            </one-of>
+            <tag>CHOICE='benchmarkultra'</tag>
+         </item>    
+         <item>
+            <one-of>
+               <item>discovery ultra</item>
+               <item>discovery</item>
+               <item>disco</item>
+            </one-of>
+            <tag>CHOICE='discoveryultra'</tag>
+         </item>       
+ 	</one-of>
+</rule>
+</grammar>

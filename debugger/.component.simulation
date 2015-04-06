@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sim:Simulate xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sim="http://www.intervoice.com/icad/simulate" version="1.0.0.0">
+  <components>
+    <component id="subroutineCall_kocxum" type="SubroutineCall"/>
+    <component id="transfer_lokjem" type="Transfer"/>
+    <component id="play_besjeg" type="Play"/>
+  </components>
+  <groups selected="Default">
+    <group name="Default" locked="false"/>
+  </groups>
+</sim:Simulate>

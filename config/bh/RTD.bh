@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0">
+  <audit savedby="IC Business Hours Configuration" timestamp="Tue Dec 10 11:14:13 EST 2013" version="3.0.2.0"/>
+  <domain allow-add="false" domain-type="BH" id="">
+    <description value="IC Business Hours Configuration"/>
+    <display-name value="RTD.bh"/>
+    <property key="Mon">
+      <app-value value="08:00-23:59"/>
+      <description value="Monday"/>
+    </property>
+    <property key="Tue">
+      <app-value value="00:01-17:00"/>
+      <description value="Tuesday"/>
+    </property>
+    <property key="Wed">
+      <app-value value="08:00-17:00"/>
+      <description value="Wednesday"/>
+    </property>
+    <property key="Thu">
+      <app-value value="08:00-17:00"/>
+      <description value="Thursday"/>
+    </property>
+    <property key="Fri">
+      <app-value value="08:00-17:00"/>
+      <description value="Friday"/>
+    </property>
+    <property key="Sat">
+      <app-value value="closed"/>
+      <description value="Saturday"/>
+    </property>
+    <property key="Sun">
+      <app-value value="closed"/>
+      <description value="Sunday"/>
+    </property>
+    <property key="20131224" removable="true">
+      <app-value value="08:00-16:00"/>
+      <description value="Christmas Break"/>
+    </property>
+    <property key="20131225" removable="true">
+      <app-value value="closed"/>
+      <description value="Christmas Break"/>
+    </property>
+    <property key="20131226" removable="true">
+      <app-value value="closed"/>
+      <description value="Christmas Break"/>
+    </property>
+    <property key="20131227" removable="true">
+      <app-value value="closed"/>
+      <description value="Christmas Break"/>
+    </property>
+    <property key="20131230" removable="true">
+      <app-value value="closed"/>
+      <description value="Christmas Break"/>
+    </property>
+    <property key="20131231" removable="true">
+      <app-value value="closed"/>
+      <description value="Christmas Break"/>
+    </property>
+    <property key="20140101" removable="true">
+      <app-value value="closed"/>
+      <description value="Chrismas Break"/>
+    </property>
+  </domain>
+</domains>

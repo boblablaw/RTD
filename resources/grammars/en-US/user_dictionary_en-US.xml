@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<lexicon xml:lang="en-US" alphabet="application/sampa;localization=nuance">
+	<entry key="amplicor">
+		<definition value="amplIkOr" />
+	</entry> 
+	<entry key="amplilink">
+		<definition value="amplIliNk" />
+	</entry> 
+	<entry key="ampliprep">
+		<definition value="amplIprep" />
+	</entry> 
+	<entry key="ampliscreen">
+		<definition value="amplIskrin" />
+	</entry> 
+	<entry key="analytics">
+		<definition value="an@lI4Iks" />
+	</entry> 
+	<entry key="analyzer">
+		<definition value="an@laYz@r" />
+	</entry> 
+	<entry key="captaq">
+		<definition value="kaptak" />
+	</entry> 
+	<entry key="carousel">
+		<definition value="ker@sel" />
+	</entry> 
+	<entry key="centrifuge">
+		<definition value="sentrIfjuZ" />
+	</entry> 
+	<entry key="chemstrip">
+		<definition value="kemstrIp" />
+	</entry> 
+	<entry key="cobas">
+		<definition value="k@WbQs" />
+		<definition value="k@Wbas" />
+	</entry> 
+	<entry key="criterion">
+		<definition value="kraYtIriIn" />
+	</entry> 
+	<entry key="cycler">
+		<definition value="saYkl@r" />
+	</entry> 
+	<entry key="diluter">
+		<definition value="dIlu4@r" />
+	</entry> 
+	<entry key="elecsys">
+		<definition value="IleksIs" />
+	</entry> 
+	<entry key="exces">
+		<definition value="@kses" />
+		<definition value="ekses" />
+		<definition value="ikses" />
+	</entry>
+	<entry key="firewall">
+		<definition value="faY@rwQl" />
+	</entry> 
+	<entry key="hamilton">
+		<definition value="ham@ltIn" />
+	</entry> 
+	<entry key="heraeus">
+		<definition value="heriIs" />
+	</entry> 
+	<entry key="hitachi">
+		<definition value="hItQtSi" />
+	</entry> 
+	<entry key="idexx">
+		<definition value="aYdeks" />
+	</entry> 
+	<entry key="Integra">
+		<definition value="Integr@" />
+	</entry> 
+	<entry key="interface">
+		<definition value="Int@rfeYs" />
+	</entry> 
+	<entry key="lyte">
+		<definition value="laYt" />
+	</entry> 
+	<entry key="magna">
+		<definition value="magn@" />
+	</entry> 
+	<entry key="magnalyzer">
+		<definition value="magn@laYz3:" />
+		<definition value="magnUlaYz3:" />
+		<definition value="magn@laYz@r" />
+		<definition value="magnUlaYz@r" />
+		<definition value="magn@#sil#laYz3:" />
+		<definition value="magn@#sil#laYz@r" />
+		<definition value="magnU#sil#laYz@r" />
+		<definition value="magnU#sil#laYz3:" />
+	</entry> 
+	<entry key="middleware">
+		<definition value="mId@lwer" />
+	</entry> 
+	<entry key="miditron">
+		<definition value="mIditrQn" />
+	</entry> 
+	<entry key="mira">
+		<definition value="mIr@" />
+	</entry> 
+	<entry key="mod">
+		<definition value="mQd" />
+	</entry> 
+	<entry key="modular">
+		<definition value="mQdj@l@r" />
+	</entry> 
+	<entry key="omni">
+		<definition value="Qmni" />
+	</entry> 
+	<entry key="omnilink">
+		<definition value="QmniliNk" />
+	</entry> 
+	<entry key="pipette">
+		<definition value="paYpet" />
+	</entry> 
+	<entry key="pipetter">
+		<definition value="paYpet@r" />
+	</entry> 
+	<entry key="roche">
+		<definition value="r@WS" />
+	</entry> 
+	<entry key="starlight">
+		<definition value="stQrlaYt" />
+	</entry> 
+	<entry key="taqman">
+		<definition value="takman" />
+	</entry> 
+	<entry key="tecan">
+		<definition value="tikan" />
+	</entry> 
+	<entry key="tss">
+		<definition value="taY#sil#es#sil#es" />
+	</entry>
+	<entry key="urisys">
+		<definition value="j3:IsIs" />
+	</entry> 
+	<entry key="accucheck">
+		<definition value="akjutSek" />
+		<definition value="akj@tSek" />
+	</entry> 
+	<entry key="plus">
+		<definition value="pl@s" />
+		<definition value="plVs" />
+		<definition value="plaUs" />
+	</entry>
+</lexicon>

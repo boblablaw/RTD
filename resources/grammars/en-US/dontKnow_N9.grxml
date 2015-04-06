@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<grammar version="1.0" 
+	xmlns="http://www.w3.org/2001/06/grammar" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.w3.org/TR/speech-grammar/grammar.xsd" 
+	xml:lang="en-US" 
+	mode="voice" 
+	root="root">
+
+	
+<rule id="root" scope="public">
+	<one-of>
+		<item>
+			<ruleref uri="#dontKnow"/>
+			<tag>CHOICE='dontknow';</tag>
+		</item>
+		
+		<item>
+			<ruleref uri="#dontHave"/>
+			<tag>CHOICE='dontknow';</tag>
+		</item>
+
+	</one-of>
+</rule>
+
+<!-- ############################################## -->
+<rule id="dontKnow" scope="public">
+<item>
+<tag>CHOICE='dont_know';</tag>
+
+	<item repeat="0-1"><ruleref uri="#dontPrefiller"/></item>
+	<one-of>
+		<item>don't know</item>
+		<item>do not know</item>
+		<item>don't know it</item>
+	</one-of>
+</item>
+</rule>
+<!-- ############################################## -->
+
+<rule id="dontHave" scope="public">
+<item>
+<tag>CHOICE='dontknow';</tag>
+
+	<item repeat="0-1"><ruleref uri="#dontPrefiller"/></item>
+	<one-of>
+		<item>don't have</item>
+		<item>don't have it</item>
+		<item>do not have</item>
+		<item>do not have it</item>
+		<item>do not have one</item>
+		<item>don't have one</item>
+	</one-of>
+</item>
+
+</rule>
+
+<!-- ############################################## -->
+<!--typically used where caller base includes customers and non-customers-->
+
+<rule id="dontHaveOne" scope="public">
+<item>
+<tag>CHOICE='donthaveone';</tag>
+
+	<item repeat="0-1"><ruleref uri="#dontPrefiller"/></item>
+	<one-of>
+		<item>don't have one</item>
+		<!--<item>don't have an account</item>-->
+	</one-of>
+</item>
+
+</rule>
+
+<!-- ############################################## -->
+<!--limited use; only add if tuning shows needed-->
+<rule id="dontRemember" scope="public">
+<item>
+<tag>CHOICE='dontknow';</tag>
+
+	<item repeat="0-1"><ruleref uri="#dontPrefiller"/></item>
+	<one-of>
+		<item>don't remember</item>
+		<item>don't remember it</item>
+	</one-of>
+</item>
+</rule>
+<!-- ############################################## -->
+
+<rule id="dontPrefiller" scope="public">
+<!-- dont is here as well for stutter starts-->
+<item>
+	<one-of>
+		<item>i</item>
+		<item>i don't</item>
+		<item>i i</item>
+		<item>don't</item>
+		
+	</one-of>
+</item>
+
+</rule>
+
+</grammar>

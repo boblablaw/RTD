@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<grammar version="1.0" 
+	xmlns="http://www.w3.org/2001/06/grammar" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.w3.org/TR/speech-grammar/grammar.xsd" 
+    tag-format='swi-semantics/1.0'
+	xml:lang="en-US" mode="voice" root="root">
+	<!-- ############################################## -->
+	<meta name="Parameters" content="" />
+	<meta name="ASR_Engine" content="Nuance" />
+	<meta name="Language" content="en-us" />
+	<meta name="Description" content="RP2350_TypeOfString grammar" />
+	<meta name="Usage_Notes" content="" />
+	<meta name="Associated_Files" content="" />
+	<meta name="ASR_Version" content="9.x" />
+	<!-- ############################################## -->
+
+
+<rule id="root" scope="public">
+  	
+	<one-of>
+		        
+        
+        <item> 
+            <one-of>
+			<item><ruleref uri="yesNoMaster_N9.grxml#yesBasic"/></item>
+			<item><ruleref uri="yesNoMaster_N9.grxml#yesPolite"/></item>
+			<!--<item><ruleref uri="yesNoMaster_N9.grxml#yesIDo"/></item>-->
+			<!--<item><ruleref uri="yesNoMaster_N9.grxml#yesIWould"/></item>-->
+			<!--<item><ruleref uri="yesNoMaster_N9.grxml#yesIAm"/></item>-->
+			<item><ruleref uri="yesNoMaster_N9.grxml#yesThatsRight"/></item>
+			<item weight="0.05"><ruleref uri="yesNoMaster_N9.grxml#right"/></item>
+			<!--<item><ruleref uri="yesNoMaster_N9.grxml#yesItIs"/></item>-->
+			<!--<item><ruleref uri="yesNoMaster_N9.grxml#yesAlternates"/></item>-->
+			<!-- a place holder for prompt-specific yes items -->
+			<item>yes it does</item>
+			<!-- <item><ruleref uri="yesNoMaster_N9.grxml#yesCustom"/></item> -->
+            </one-of>
+          
+			<tag>CHOICE='yes'</tag>
+		</item>
+       
+        <item> 
+        	<item repeat="0-1">
+        		<one-of>
+        			<item> um </item>
+        			<item> ah </item>
+        		</one-of>
+        	</item>
+            <one-of>
+			<item><ruleref uri="yesNoMaster_N9.grxml#noBasic"/></item>
+			<item><ruleref uri="yesNoMaster_N9.grxml#noPolite"/></item>
+			<!--<item><ruleref uri="yesNoMaster_N9.grxml#noIDont"/></item>-->
+			<!--<item><ruleref uri="yesNoMaster_N9.grxml#noIWouldnt"/></item>-->
+			<!--<item><ruleref uri="yesNoMaster_N9.grxml#noImNot"/></item>-->
+			<item><ruleref uri="yesNoMaster_N9.grxml#noThatsWrong"/></item>
+			<item><ruleref uri="yesNoMaster_N9.grxml#noItIsnt"/></item>
+			<!-- a place holder for prompt-specific no items -->
+			<item> i t product </item>
+			<!--<item><ruleref uri="yesNoMaster_N9.grxml#noCustom"/></item>-->
+            </one-of>
+          
+			<tag>CHOICE='no'</tag>
+		</item>
+		<item><ruleref uri="dontKnow_N9.grxml"/><tag>CHOICE='idontknow';</tag></item>
+		<item> i can't find it <tag>CHOICE='idontknow';</tag></item>
+		<item> can't find it   <tag>CHOICE='idontknow';</tag></item>
+		<item> not sure   <tag>CHOICE='idontknow';</tag></item> 										<!-- tuning update DIR 09/12/12 -->
+		<item> i don't have the serial number<tag>CHOICE='idontknow';</tag></item> 	<!-- tuning update DIR 09/12/12 -->
+		<item> no serial number<tag>CHOICE='idontknow';</tag></item> 								<!-- tuning update DIR 09/12/12 -->
+       
+        
+ </one-of>
+</rule>
+
+</grammar>

@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<grammar version="1.0" 
+	xmlns="http://www.w3.org/2001/06/grammar" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.w3.org/TR/speech-grammar/grammar.xsd" 
+	xml:lang="en-US" 
+	mode="voice" 
+	root="root">
+
+	
+<rule id="root" scope='public'>
+	<one-of>
+		<item>
+			<one-of>
+				<item><ruleref uri="#yesBasic"/></item>
+				<item><ruleref uri="#yesPolite"/></item>
+				<item><ruleref uri="#yesIDo"/></item>
+				<item><ruleref uri="#yesIWould"/></item>
+				<item><ruleref uri="#yesIAm"/></item>
+				<item><ruleref uri="#yesThatsRight"/></item>
+				<item weight="0.05"><ruleref uri="#right"/></item>
+				<item><ruleref uri="#yesItIs"/></item>
+				<!--<item><ruleref uri="#yesAlternates"/></item>-->
+				<!-- a place holder for prompt-specific yes items -->
+				<!-- <item><ruleref uri="#yesCustom"/></item> -->
+			</one-of>
+			
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+		
+		<item>
+			<one-of>
+				<item><ruleref uri="#noBasic"/></item>
+				<item><ruleref uri="#noPolite"/></item>
+				<item><ruleref uri="#noIDont"/></item>
+				<item><ruleref uri="#noIWouldnt"/></item>
+				<item><ruleref uri="#noImNot"/></item>
+				<item><ruleref uri="#noThatsWrong"/></item>
+				<item><ruleref uri="#noItIsnt"/></item>
+				<!-- a place holder for prompt-specific no items -->
+				<!--<item><ruleref uri="#noCustom"/></item>-->
+			</one-of>
+			
+			<tag>CHOICE='no'; choice_boolean='false'</tag>
+		</item>
+	</one-of>
+	</rule>
+
+	<!-- ### YES ################################################### -->
+	
+	<!-- basic yes variations-->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="yesBasic" scope="public">
+		<item>
+			<one-of>
+				<item>yes</item>
+				<item>yes yes</item> 
+				<item>yes yes yes</item> 
+				<item>yeah</item>
+				<item>yes yeah</item>
+				<item>yeah yes</item> 
+			</one-of>
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+	</rule>
+	
+	<!-- polite yes variations-->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="yesPolite" scope="public">
+		<item>
+			<one-of>
+				<item>yes please</item>
+				<item>yes yes please</item>
+				<item>yes thanks</item>
+				<item>yes yes thanks</item>
+				<item>yes thank you</item>
+				<item>yes yes thank you</item>
+				<item>yes ma'am</item> 
+				<item>yes yes ma'am</item>
+				<!--<item>yes sir</item>-->
+				<!--<item>yes yes sir</item>-->
+			</one-of>
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+	</rule>
+
+	<!-- variations on "yes i do" -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="yesIDo" scope="public">
+		<item>
+			<one-of>	
+				<!--<item>i do</item>-->
+				<item>yes i do</item>
+				<item>yes yes i do</item>
+				<!--<item>i do yes</item>-->
+				<item>yeah i do</item>
+			</one-of>
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+	</rule>
+
+	<!-- variations on "yes i would" -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="yesIWould" scope="public">
+		<item>
+			<one-of>	
+				<!--<item>i would</item>-->
+				<item>yes i would</item>
+				<item>yes yes i would</item>
+				<!--<item>i would yes</item>-->
+				<item>yeah i would</item>
+			</one-of>
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+	</rule>
+
+	<!-- variations on "yes i am" -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="yesIAm" scope="public">
+		<item>
+			<one-of>	
+				<!--<item>i am</item>-->
+				<item>yes i am</item>
+				<item>yes yes i am</item>
+				<!--<item>i am yes</item>-->
+				<item>yeah i am</item>
+			</one-of>
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+	</rule>
+			
+	<!-- assertions of correctness -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="yesThatsRight" scope="public">
+		<item>
+			<one-of>	
+				<item>yes right</item>
+				<item>yes yes right</item>
+				<item>right yes</item>
+				<item>that's right</item>
+				<item>yes that's right</item>
+				<item>yes yes that's right</item>
+				<item>that's right yes</item>
+				<item>that is right</item>
+				<item>yes that is right</item>
+				<item>yes yes that is right</item>
+				<item>that's right yes</item>
+				
+				<item>correct</item>
+				<item>yes correct</item>
+				<item>yes yes correct</item>
+				<item>correct yes</item>
+				<item>that's correct</item>
+				<item>yes that's correct</item>
+				<item>yes yes that's correct</item>
+				<item>that's correct yes</item>
+				<item>that is correct</item>
+				<item>yes that is correct</item>
+				<item>yes yes that is correct</item>
+				<item>that is correct yes</item>
+				<item>it's correct</item>
+				<item>yes it's correct</item>
+				<item>yes yes it's correct</item>
+				<item>it's correct yes</item>
+				<item>it is correct</item>
+				<item>yes it is correct</item>
+				<item>yes yes it is correct</item>
+				<item>it is correct yes</item>
+			</one-of>
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+	</rule>
+
+	<!-- "right" - this is on its own because it should be 
+	added to grammars as sparingly as possible, since it can
+	cause recognition confusion -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="right" scope="public">
+		<item>
+			<one-of>	
+				<item>right</item>
+			</one-of>
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+	</rule>
+	
+	<!-- explicit affirmation -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="yesItIs" scope="public">
+		<item>
+			<one-of>	
+				<item>yes it is</item>
+				<item>yes yes it is</item>
+				<item>it is yes</item>
+				<!--<item>it is</item>-->
+			</one-of>
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+	</rule>
+	
+	<!--  alternate variations-->
+	<!--  less common utterances that can cause recognition confusion-->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="yesAlternates" scope="public">
+		<item>
+			<one-of>
+				<item>sure</item>
+				<item>okay</item>
+				<!--<item>i guess so</item>-->
+				<!--<item>i think so</item>-->
+				<!--<item weight="0.05">yep</item>-->
+				<!--<item weight="0.001">yup</item>-->
+			</one-of>
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+	</rule>
+	
+	<!-- example for creating prompt-specific 'yes' rule-->
+	<!--<rule id="yesCustom" scope="public">
+		<item>
+			<one-of>	
+				<item>yes that's my name</item>
+				<item>yes that's me</item>
+			</one-of>
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+	</rule>-->
+	
+	<!-- ### NO ################################################### -->
+	<!-- basic no variations -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="noBasic" scope="public">
+		<item>
+			<one-of>	
+				<item>no</item>
+				<item>no no</item>
+				<item>no no no</item>
+				<item>nope</item>
+				<item>nope no</item>
+			</one-of>
+			<tag>CHOICE='no'; choice_boolean='false'</tag>
+		</item>
+	</rule>
+	
+	<!-- variations on "no thanks" -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="noPolite" scope="public">
+		<item>
+			<one-of>	
+				<item>no thank you</item>
+				<item>no thanks</item>
+				<item>nope thanks</item>
+				<item>no ma'am</item>
+				<!--<item>no sir</item>-->
+			</one-of>
+			<tag>CHOICE='no'; choice_boolean='false'</tag>
+		</item>
+	</rule>
+			
+	<!-- variations on "no i wouldn't" -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="noIWouldnt" scope="public">
+		<item>
+			<one-of>	
+				<!--<item>i wouldn't</item>-->
+				<item>no i wouldn't</item>
+				<item>no no i wouldn't</item>
+				<item>i would not</item>
+				<item>no i would not</item>
+				<item>no no i would not</item>
+			</one-of>
+			<tag>CHOICE='no'; choice_boolean='false'</tag>
+		</item>
+	</rule>
+
+	<!-- variations on "no i don't" -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="noIDont" scope="public">
+		<item>
+			<one-of>	
+				<!--<item>i don't</item>-->
+				<item>no i don't</item>
+				<item>no no i don't</item>
+				<item>i do not</item>
+				<item>no i do not</item>
+				<item>no no i do not</item>
+				<item>i do not no</item>
+			</one-of>
+			<tag>CHOICE='no'; choice_boolean='false'</tag>
+		</item>
+	</rule>
+	
+	<!-- variations on "no i'm not" -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="noImNot" scope="public">
+		<item>
+			<one-of>	
+				<!--<item>i'm not</item>-->
+				<item>no i'm not</item>
+				<item>i am not</item>
+				<item>no i am not</item>
+			</one-of>
+			<tag>CHOICE='no'; choice_boolean='false'</tag>
+		</item>
+	</rule>
+	
+	<!-- assertions of incorrectness -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="noThatsWrong" scope="public">
+		<item>
+			<one-of>	
+				<!--<item weight="0.005">wrong</item>-->
+				<item>no wrong</item>
+				<item>no no wrong</item>
+				<item>wrong no</item>
+				<item>that's wrong</item>
+				<item>no that's wrong</item>
+				<item>no no that's wrong</item>
+				<item>that's wrong no</item>
+				<item>not right</item>
+				<item>no not right</item>
+				<item>no no not right</item>
+				<item>not right no</item>
+				<item>that's not right</item>
+				<item>no that's not right</item>
+				<item>no no that's not right</item>
+				<item>that's not right no</item>
+				<item>it's not right</item>
+				<item>no it's not right</item>
+				<item>that's not correct</item>
+				<item>no that's not correct</item>
+				<item>no no that's not correct</item>
+				<item>that's not correct no</item>
+				<item>it's not correct</item>
+				<item>no it's not correct</item>
+				<!--<item weight="0.005">incorrect</item>-->
+				<item>no incorrect</item>
+				<item>incorrect no</item>
+				<item>that's incorrect</item>
+				<item>no that's incorrect</item>
+				<item>no no that's incorrect</item>
+				<item>that's incorrect no</item>
+			</one-of>
+			<tag>CHOICE='no'; choice_boolean='false'</tag>
+		</item>
+	</rule>
+	
+	<!-- explicit negation -->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="noItIsnt" scope="public">
+		<item>
+			<one-of>	
+				<!--<item>it isn't</item>-->
+				<item>no it isn't</item>
+				<item>no no it isn't</item>
+				<!--<item>it isn't no</item>-->
+				<!--<item>it's not</item>-->
+				<item>no it's not</item>
+				<item>no no it's not</item>
+				<item>it's not no</item>
+				<item>it is not</item>
+				<item>no it is not</item>
+				<item>no no it is not</item>
+				<item>it is not no</item>
+			</one-of>
+			<tag>CHOICE='no'; choice_boolean='false'</tag>
+		</item>
+	</rule>
+
+	<!-- example for creating prompt-specific 'no' rule-->
+	<!--<rule id="noCustom" scope="public">
+		<item>
+			<one-of>	
+				<item>no that isn't my name</item>
+				<item>no that is not my name</item>
+			</one-of>
+			<tag>CHOICE='no'; choice_boolean='false'</tag>
+		</item>
+	</rule>-->
+
+</grammar>

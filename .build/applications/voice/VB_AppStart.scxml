@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by Exporter version 1.0 at 2015-04-06 09:45:11.754 GMT-4--><!--Note: Components marked as 'debug' have been removed from the call flow.--><scxml xmlns:icview="http://www.intervoice.com/sce/icview"
+       xmlns:jms="http://www.intervoice.com/sce/action/jms"
+       xmlns:mim="http://www.intervoice.com/sce/action/mim"
+       xmlns:scripting="http://www.intervoice.com/sce/action/scripting"
+       xmlns:xs="http://www.w3.org/2001/XMLSchema"
+       xmlns:process="http://www.intervoice.com/sce/action/process"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:gtfns="http://www.intervoice.com/gtfns/1.0"
+       xmlns="http://www.w3.org/2007/02/scxml"
+       xmlns:icxml="http://www.intervoice.com/icxml"
+       xmlns:xmi="http://www.omg.org/XMI"
+       xmlns:intv="http://www.intervoice.com/scxml"
+       xmlns:vca="http://www.intervoice.com/sce/action/vca"
+       xmlns:ex="http://www.intervoice.com/exporter"
+       initialstate="documentEntry"
+       intv:worksheetscope="applications/voice/Worksheet.ws"
+       version="1.0">
+   <state id="documentEntry">
+      <initial>
+         <transition target="documentEntry_doLocalInit"/>
+      </initial>
+      <state id="documentEntry_doLocalInit">
+         <onentry>
+            <assign location="intv_appType" expr="undefined"/>
+            <rdotype:get xmlns:rdotype="http://www.intervoice.com/sce/action/rdotype"
+                         location="intv_appType"/>
+            <if cond="intv_appType == 'vca'">
+               <assign location="intv_appType" expr="'voice'"/>
+               <elseif cond="intv_appType == 'ccxml'"/>
+               <assign location="intv_appType" expr="'call'"/>
+               <elseif cond="intv_appType == 'UNKNOWN'"/>
+               <assign location="intv_appType" expr="'process'"/>
+            </if>
+         </onentry>
+         <transition target="blockEntry_cizjis"/>
+      </state>
+      <datamodel><!--Variables from declaration block: _uhfYxB6KEeCmXNWSPyAURA--><data name="intv_appType" expr="undefined"/>
+         <data name="intv_eventName" expr="undefined"/>
+         <data name="intv_eventData" expr="undefined"/>
+         <data name="intv_noFieldsInitialized" expr="undefined"/>
+         <data name="intv_allFieldsInitialized" expr="undefined"/>
+         <data name="intv_atLeastOneSituationExecuted" expr="undefined"/>
+         <data name="intv_modalities" expr="undefined"/>
+         <data name="result" expr="undefined"/>
+         <data name="tmp" expr="undefined"/>
+         <data name="junk" expr="undefined"/>
+         <data name="dummy" expr="undefined"/>
+         <data name="dummy2" expr="undefined"/>
+         <data name="ctiResultObj" expr="undefined"/>
+         <data name="next_vxml_url" expr="undefined"/>
+         <data name="ctiGetCallInformationResult" expr="undefined"/>
+      </datamodel>
+      <state id="blockEntry_cizjis">
+         <onentry>
+            <icview:log text="action=entry, type=BlockEntry, name=, id=blockEntry_cizjis, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=BlockEntry, name=, id=blockEntry_cizjis, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition target="script_yuskob"/>
+      </state>
+      <state id="script_bumvus">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_bumvus, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/Globals.js'"/>
+            <scripting:script srcexpr="'/scripts/js/Universals.js'"/>
+            <scripting:script srcexpr="'/scripts/js/GlobalOverrides.js'"/>
+            <scripting:script srcexpr="'/scripts/js/GateKeeperMapMaker.js'"/>
+            <scripting:script srcexpr="'/scripts/js/menus/Start_ACTION.js'"/>
+            <scripting:script srcexpr="'/scripts/js/CheckPoint.js'"/>
+            <scripting:script srcexpr="'/scripts/js/functions.js'"/>
+            <scripting:script srcexpr="'/scripts/js/SIR.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_bumvus, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="if_pasduf"/>
+      </state>
+      <state xmlns:http="http://www.intervoice.com/sce/action/http" id="httpFetch_fethod">
+         <initial>
+            <transition target="HttpFetch_httpFetch_fethod"/>
+         </initial>
+         <onentry>
+            <icview:log text="action=entry, type=HTTPFetch, name=, id=httpFetch_fethod, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+               <icview:param name="httpUrl"
+                             expr="'http://localhost:8080/SCE/LogFlush.jsp?appName=' +  _ws.appName"/>
+            </icview:log>
+            <assign location="intv_eventName" expr="undefined"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=HTTPFetch, name=, id=httpFetch_fethod, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true">
+               <icview:result name="httpResponseObject" expr="junk"/>
+            </icview:log>
+         </onexit>
+         <state id="HttpFetch_httpFetch_fethod">
+            <onentry intv:abortonerror="true">
+               <assign location="intv_eventName" expr="undefined"/>
+               <http:retrieve resourceHandle="" method="'GET'"
+                              url="'http://localhost:8080/SCE/LogFlush.jsp?appName=' +  _ws.appName"
+                              requestBodyEncoding=""
+                              responseObject="junk"
+                              timeout="500"
+                              username=""
+                              password=""/>
+            </onentry>
+            <transition cond="hasNoError()" target="collect_mobfuc">
+               <icview:log text="action=leg:default, type=HTTPFetch, name=, id=httpFetch_fethod, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            </transition>
+            <transition event="error.action.com.intervoice.scxml.http" target="collect_mobfuc">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:error.action.com.intervoice.scxml.http, type=HTTPFetch, name=, id=httpFetch_fethod, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            </transition>
+            <transition event="error.action.com.intervoice.scxml.http.attribute"
+                        target="collect_mobfuc">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:error.action.com.intervoice.scxml.http.attribute, type=HTTPFetch, name=, id=httpFetch_fethod, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            </transition>
+            <transition event="error.action.com.intervoice.scxml.http.badReference"
+                        target="collect_mobfuc">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:error.action.com.intervoice.scxml.http.badReference, type=HTTPFetch, name=, id=httpFetch_fethod, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            </transition>
+            <transition event="error.action.com.intervoice.scxml.http.sslError" target="collect_mobfuc">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:error.action.com.intervoice.scxml.http.sslError, type=HTTPFetch, name=, id=httpFetch_fethod, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            </transition>
+            <transition event="error.action.com.intervoice.scxml.http.invalidMethod"
+                        target="collect_mobfuc">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:error.action.com.intervoice.scxml.http.invalidMethod, type=HTTPFetch, name=, id=httpFetch_fethod, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            </transition>
+            <transition event="error.action.com.intervoice.scxml.http.fatalProtocolViolation"
+                        target="collect_mobfuc">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:error.action.com.intervoice.scxml.http.fatalProtocolViolation, type=HTTPFetch, name=, id=httpFetch_fethod, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            </transition>
+            <transition event="error.action.com.intervoice.scxml.http.fatalTransportError"
+                        target="collect_mobfuc">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:error.action.com.intervoice.scxml.http.fatalTransportError, type=HTTPFetch, name=, id=httpFetch_fethod, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            </transition>
+            <transition event="error.action.com.intervoice.scxml.http.timeout" target="collect_mobfuc">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:error.action.com.intervoice.scxml.http.timeout, type=HTTPFetch, name=, id=httpFetch_fethod, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            </transition>
+         </state>
+      </state>
+      <state id="script_yuskob">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_yuskob, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script><![CDATA[
+_ws.appName = '';
+try {
+	_ws.appName = Packages.com.intervoice.scxml.runtime.model.ScriptSupport.getScxmlContext().getScxmlSession().getApplication().getName();
+} catch (e) {
+}
+tmp = '/RocheRTD_Audio/resources/audio/system/en-US.default/m.053';
+]]></scripting:script>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_yuskob, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="script_bumvus"/>
+      </state>
+      <state id="collect_mobfuc">
+         <initial>
+            <transition target="genericCollect_collect_mobfuc"/>
+         </initial>
+         <onentry>
+            <icview:log text="action=entry, type=Collect, name=, id=collect_mobfuc, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <assign location="_ws.DNIS" expr="undefined"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Collect, name=, id=collect_mobfuc, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <state id="genericCollect_collect_mobfuc">
+            <onentry intv:abortonerror="true">
+               <vca:collect fallback="true" fieldName="'spoofDNIS'" inputMode="'dtmf'" maxErrors="1"
+                            maxNoInput="1"
+                            maxNoMatch="1"
+                            maxSpeechTimeout="1"
+                            slotName="'CHOICE'"
+                            formName="'collect_mobfuc'">
+                  <vca:collectPrompts cond="true" doReprompt="false" presentAs="'sequence'" promptCount="1"
+                                      scope="'default'">
+                     <vca:prompt bargeIn="true" cond="true" expr="&#34;enter DNIS&#34;" type="'tts'"/>
+                  </vca:collectPrompts>
+                  <vca:grammar expr="'builtin:dtmf/digits?minlength=5;maxlength=5'"
+                               mimeType="'application/srgs+xml'"
+                               type="'url'"
+                               weight="'1.0'">
+                     <vca:element type="'attr'" name="'mode'" expr="'dtmf'"/>
+                  </vca:grammar>
+               </vca:collect>
+            </onentry>
+            <transition event="vca:success" target="calc_yufbig">
+               <assign location="intv_eventName" expr="'Success'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <assign location="_ws.DNIS" expr="_eventdata"/>
+               <icview:log text="action=leg:vca:success, type=Collect, name=, id=collect_mobfuc, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+                  <icview:result name="resultVariable" expr="_ws.DNIS"/>
+               </icview:log>
+            </transition>
+            <transition event="vca:error.general" target="calc_yufbig">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <assign location="_ws.DNIS" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:vca:error.general, type=Collect, name=, id=collect_mobfuc, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+                  <icview:result name="resultVariable" expr="_ws.DNIS"/>
+               </icview:log>
+            </transition>
+            <transition event="vca:error.unhandled" target="calc_yufbig">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <assign location="_ws.DNIS" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:vca:error.unhandled, type=Collect, name=, id=collect_mobfuc, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+                  <icview:result name="resultVariable" expr="_ws.DNIS"/>
+               </icview:log>
+            </transition>
+            <transition event="vca:error.reco.maxnomatch" target="calc_yufbig">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <assign location="_ws.DNIS" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:vca:error.reco.maxnomatch, type=Collect, name=, id=collect_mobfuc, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+                  <icview:result name="resultVariable" expr="_ws.DNIS"/>
+               </icview:log>
+            </transition>
+            <transition event="vca:error.reco.maxnoinput" target="calc_yufbig">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <assign location="_ws.DNIS" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:vca:error.reco.maxnoinput, type=Collect, name=, id=collect_mobfuc, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+                  <icview:result name="resultVariable" expr="_ws.DNIS"/>
+               </icview:log>
+            </transition>
+            <transition event="vca:error.reco.maxspeechtimeout" target="calc_yufbig">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <assign location="_ws.DNIS" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:vca:error.reco.maxspeechtimeout, type=Collect, name=, id=collect_mobfuc, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+                  <icview:result name="resultVariable" expr="_ws.DNIS"/>
+               </icview:log>
+            </transition>
+            <transition event="vca:error.reco.maxerrors" target="calc_yufbig">
+               <assign location="intv_eventName" expr="'Ignore'"/>
+               <assign location="intv_eventData" expr="_eventdata"/>
+               <assign location="_ws.DNIS" expr="_eventdata"/>
+               <icview:log text="action=leg:ignore:Error:vca:error.reco.maxerrors, type=Collect, name=, id=collect_mobfuc, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+                  <icview:result name="resultVariable" expr="_ws.DNIS"/>
+               </icview:log>
+            </transition>
+         </state>
+      </state>
+      <state id="calc_yufbig">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_yufbig, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <assign location="dummy"
+                    expr="_ws.gateKeeper.setString(&#34;DNIS&#34;,_ws.DNIS_TT.translate(_ws.DNIS.result))"/>
+            <assign location="_ws.primaryDNIS" expr="_ws.DNIS.result"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_yufbig, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true">
+               <icview:result name="dummy" expr="dummy"/>
+               <icview:result name="_ws.primaryDNIS" expr="_ws.primaryDNIS"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="log_giqyox">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="log_giqyox">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=callflowLog, id=log_giqyox, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <log expr="'************************* START OF CALL *****************'"
+                 label="'Default'"/>
+            <log expr="'Line #: ' + _ws.session.connection.line  + '| Callid:' + _ws.session.connection.callid"
+                 label="'Default'"/>
+            <log expr="'_ws.session.connection.host: ' + _ws.session.connection.host  + '| Callid:' + _ws.session.connection.callid"
+                 label="'Default'"/>
+            <log expr="'_ws.endpointWS: ' + _ws.endpointWS  + '| Callid:' + _ws.session.connection.callid"
+                 label="'Default'"/>
+            <log expr="'_ws.endpointVDNWS: ' + _ws.endpointVDNWS  + '| Callid:' + _ws.session.connection.callid"
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=callflowLog, id=log_giqyox, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="if_yezfaz">
+            <icview:log text="action=leg:default, type=Log, name=callflowLog, id=log_giqyox, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+         </transition>
+      </state>
+      <state id="if_pasduf">
+         <onentry>
+            <icview:log text="action=entry, type=If, name=, id=if_pasduf, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+               <icview:param name="LogSave" value="_ws.spoofDNIS == 'T'"/>
+            </icview:log>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=If, name=, id=if_pasduf, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="_ws.spoofDNIS == 'T'" target="httpFetch_fethod">
+            <icview:log text="action=leg:LogSave, type=If, name=, id=if_pasduf, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+         </transition>
+         <transition cond="true" target="log_giqyox">
+            <icview:log text="action=leg:default, type=If, name=, id=if_pasduf, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+         </transition>
+      </state>
+      <state id="goToBlock_devyuq">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_RP1000_Greeting.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_devyuq, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_devyuq, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="if_yezfaz">
+         <onentry>
+            <icview:log text="action=entry, type=If, name=, id=if_yezfaz, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+               <icview:param name="CTI" value="_ws.ctiOn == 'T'"/>
+            </icview:log>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=If, name=, id=if_yezfaz, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="_ws.ctiOn == 'T'" target="subroutineCall_vorpem">
+            <icview:log text="action=leg:CTI, type=If, name=, id=if_yezfaz, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+         </transition>
+         <transition cond="true" target="goToBlock_devyuq">
+            <icview:log text="action=leg:default, type=If, name=, id=if_yezfaz, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+         </transition>
+      </state>
+      <state id="calc_geyxow">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_geyxow, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <assign location="_ws.ctiOn" expr="'F'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_geyxow, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ctiOn" expr="_ws.ctiOn"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_devyuq">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="log_cisjiy">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=, id=log_cisjiy, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <log expr="'CTI_GetCallInformationResult SUCCESS     callId:'+_ws.session.connection.callid +'  ani:' +_ws.session.connection.remote.uri.substring(0,10) +'  dnis:'+_ws.session.connection.local.uri.substring(0,10)  + '| Callid:' + _ws.session.connection.callid"
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=, id=log_cisjiy, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_geyviw">
+            <icview:log text="action=leg:default, type=Log, name=, id=log_cisjiy, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+         </transition>
+      </state>
+      <state id="log_maslaj">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=, id=log_maslaj, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <log expr="'CTI Get User Data FAIL'  + '| Callid:' + _ws.session.connection.callid"
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=, id=log_maslaj, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_geyxow">
+            <icview:log text="action=leg:default, type=Log, name=, id=log_maslaj, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+         </transition>
+      </state>
+      <state id="calc_geyviw">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_geyviw, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <assign location="_ws.primaryDNIS"
+                    expr="_ws.session.connection.local.uri.substring(0,10)"/>
+            <assign location="_ws.primaryANI"
+                    expr="_ws.session.connection.remote.uri.substring(0,10)"/>
+            <assign location="_ws.callid" expr="_ws.session.connection.callid"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_geyviw, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true">
+               <icview:result name="_ws.primaryDNIS" expr="_ws.primaryDNIS"/>
+               <icview:result name="_ws.primaryANI" expr="_ws.primaryANI"/>
+               <icview:result name="_ws.callid" expr="_ws.callid"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_summud">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="log_diqneg">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=, id=log_diqneg, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <log expr="'CTI - Get Data Request SUCCESS : '  + _ws.primaryDNIS + ' ' + _ws.primaryANI + ' ' + _ws.routeVDN + ' '  + _ws.vdu_id + ' ' +_ws.ucid  + '| Callid:' + _ws.session.connection.callid"
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=, id=log_diqneg, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_devyuq">
+            <icview:log text="action=leg:default, type=Log, name=, id=log_diqneg, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+         </transition>
+      </state>
+      <state id="calc_summud">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_summud, document=/RocheRTD/applications/voice/VB_AppStart.scxml"/>
+            <assign location="dummy"
+                    expr="_ws.gateKeeper.setString(&#34;DNIS&#34;,_ws.DNIS_TT.translate(_ws.primaryDNIS))"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_summud, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true">
+               <icview:result name="dummy" expr="dummy"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="log_diqneg">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="subroutineCall_vorpem">
+         <datamodel>
+            <data name="intv_subName"
+                  expr="'/resource/com.intervoice.cti.library/subroutines/process/GetCallInformation.diagram'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=SubroutineCall, name=ctiGetCallInfo, id=subroutineCall_vorpem, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+               <icview:param name="timeout" expr="5"/>
+               <icview:param name="lineInfo" expr="_ws.session"/>
+            </icview:log>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script><![CDATA[
+					
+						if (intv_subName.search(/^\s*\/resource\/[^\/]+\/subroutines\/[^\/]+\/.+$/) >= 0)
+						{
+							var libName = intv_subName.replace(/^\s*\/resource(\/[^\/]+\/subroutines\/[^\/]+\/).+$/, '$1');
+							
+							if (libName != undefined && libName != '') 
+							{
+								var libMatch = 0;
+								
+								for (var i = _ws.intv_librarySize; i > 0; i--) 
+								{
+									var libEntry = _ws.intv_libraryList[i - 1];
+									
+									if (libEntry == libName) 
+									{
+										libMatch = i;
+										break;
+									}
+								}
+								
+								if (libMatch == 0) 
+								{
+									_ws.intv_libraryList[_ws.intv_librarySize++] = libName;
+								}
+							}
+						}
+					
+				]]></scripting:script>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=SubroutineCall, name=ctiGetCallInfo, id=subroutineCall_vorpem, document=/RocheRTD/applications/voice/VB_AppStart.scxml"
+                        nolog="true"/>
+         </onexit>
+         <invoke targettype="x-scxml-component"
+                 src="/com.intervoice.cti.library/subroutines/process/GetCallInformation.scxml">
+            <param name="timeout" expr="5"/>
+            <param name="lineInfo" expr="_ws.session"/>
+         </invoke>
+         <transition event="subroutineCall_vorpem.invoke.done"/>
+         <transition event="success" target="log_cisjiy">
+            <assign location="ctiGetCallInformationResult" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:success, type=SubroutineCall, name=ctiGetCallInfo, id=subroutineCall_vorpem, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+               <icview:result name="resultVariable" expr="ctiGetCallInformationResult"/>
+            </icview:log>
+         </transition>
+         <transition event="error" target="log_maslaj">
+            <assign location="ctiGetCallInformationResult" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:error, type=SubroutineCall, name=ctiGetCallInfo, id=subroutineCall_vorpem, document=/RocheRTD/applications/voice/VB_AppStart.scxml">
+               <icview:result name="resultVariable" expr="ctiGetCallInformationResult"/>
+            </icview:log>
+         </transition>
+      </state>
+   </state>
+   <final id="documentExit"/>
+</scxml>

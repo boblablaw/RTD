@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<grammar mode='voice' root='root' version='1.0'
+xml:lang='en-US' xmlns='http://www.w3.org/2001/06/grammar' tag-format='semantics/1.0'>
+	
+	<rule id="root" scope="public">
+		<item>
+			<one-of>
+				<item><ruleref uri="#help"/></item>
+				<item><ruleref uri="#representative"/></item>
+				<item><ruleref uri="#main_menu"/></item>
+				<item><ruleref uri="#repeat"/></item>
+				<item><ruleref uri="#goodbye"/></item>
+			</one-of>
+
+			<tag>
+				return ($return)
+			</tag>
+		</item>
+	</rule>
+	
+	<rule id="help" scope="public">
+		<item>
+			<item repeat="0-1"><ruleref uri="#umUh"/></item>
+			<one-of>
+				<item>help</item>
+			</one-of>
+			<tag>out.GLOBAL='help'</tag>
+		</item>
+	</rule>
+	
+	<rule id="main_menu" scope="public">
+		<item>
+			<item repeat="0-1"><ruleref uri="#umUh"/></item>
+			<one-of>
+				<item>return to the main menu</item>
+				<item>go back to the main menu</item>
+				<item>take me to the main menu</item>
+				<item>take me back to the main menu</item>
+				<item>go back to the main menu</item>
+				<item>main menu</item>
+			</one-of>
+			<tag>out.GLOBAL='main_menu'</tag>
+		</item>
+	</rule>
+	
+	<rule id="start_over" scope="public">
+		<item>
+			<item repeat="0-1"><ruleref uri="#umUh"/></item>
+			<one-of>
+				<item>start over</item>
+				<item>new search</item>
+				<item>new</item>
+				<item>start new</item>
+				<item>start a new search</item>
+				<item>start new search</item>
+			</one-of>
+			<tag>out.GLOBAL='start_over'</tag>
+		</item>
+	</rule>
+	
+	<rule id="goodbye" scope="public">
+		<item>
+			<item repeat="0-1"><ruleref uri="#umUh"/></item>
+			<one-of>
+				<item>goodbye</item>
+				<item>good bye</item>
+				<item>that's all</item>
+				<item>that's it</item>				
+			</one-of>
+			<tag>out.GLOBAL='goodbye'</tag>
+		</item>
+	</rule>
+	
+	<rule id="repeat" scope="public">
+		<item>
+			<item repeat="0-1"><ruleref uri="#umUh"/></item>
+			<one-of>
+				<item>repeat</item>
+				<item>repeat that</item>
+			</one-of>
+			<tag>out.GLOBAL='repeat'</tag>
+		</item>
+	</rule>
+	
+	<rule id="representative" scope="public">
+		<item> 
+			<item>
+				<item repeat="0-1"><ruleref uri="#umUh"/></item>
+				<one-of>
+					<item ><item repeat="0-1"><ruleref uri = "#IWantAn"/></item>agent</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWant"/></item>customer support</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWant"/></item>customer service</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWantA"/></item>representative</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWantA"/></item>customer rep</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWantA"/></item>customer service representative</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWantA"/></item>customer representative</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWantA"/></item>customer service agent</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWantA"/></item>specialist</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWant"/></item>someone</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWant"/></item>somebody</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWantA"/></item>person</item>
+					<item ><item repeat="0-1"><ruleref uri = "#IWantA"/></item>real person</item>
+				</one-of>
+				<item repeat="0-1"><ruleref uri="#postphrase"/></item>
+			</item>
+			<tag>out.GLOBAL='representative'</tag>
+	    </item>
+	</rule>
+	
+	<rule id="IWantA" scope="public">
+		<one-of>
+			<item>can i talk to a</item>
+			<item>can i speak to a</item>
+			<item>i need to talk to a</item>
+			<item>i need to talk with a</item>
+			<item>i need to speak to a</item>
+			<item>i need to speak with a</item>
+			<item>i want to talk to a</item>
+			<item>i want to talk with a</item>
+			<item>i would like to speak to a</item>
+			<item>i would like to speak with a</item>
+			<item>i'd like to speak to a</item>
+			<item>i'd like to speak with a</item>
+			<item>speak to a</item>
+			<item>i need a</item>
+			<item>i want a</item>
+			<item>i'd like to talk to a</item>
+			<item>can i talk to a</item>
+		</one-of>
+	</rule>
+	
+	<rule id="IWant" scope="public">
+		<one-of>
+			<item>can i talk to</item>
+			<item>can i speak to</item>
+			<item>i wanna talk to</item>
+			<item>i want to speak to</item>
+			<item>i want to talk to</item>
+			<item>i need to talk to</item>
+			<item>i need to speak to</item>
+			<item>i'd like to talk to</item>
+		    <item>i would like to speak to </item>
+		</one-of>
+	</rule>
+	
+	<rule id="IWantAn" scope="public">
+	  <one-of>
+	    <item>i want to talk to an</item>
+	    <item>i want to talk with an</item>
+	    <item>i would like to speak to an</item>
+	    <item>i would like to speak with an</item>
+	    <item>i need to talk to</item>
+	    <item>i need an</item>
+	    <item>i'd like to talk to an</item>
+	  </one-of>
+	</rule>
+	<rule id="IWantthe" scope="public">
+	  <one-of>
+	    <item>i want to talk to an</item>
+	    <item>i want to talk with an</item>
+	    <item>i would like to speak to an</item>
+	    <item>i would like to speak with an</item>
+	    <item>i would like to speak with the</item>
+	    <item>i need to talk to an</item>
+	    <item>i need to talk to the</item>
+	    <item>i need an</item>
+	    <item>i'd like to talk to an</item>
+	  </one-of>
+	</rule>
+	
+	<rule id="postphrase" scope="public">
+	  <one-of>
+	    <item >please</item>
+	  </one-of>
+	</rule>
+	
+		<rule id="umUh" scope="public">
+		<one-of>
+			<item>uh</item>
+			<item>um</item>
+			<item>ah</item>
+		</one-of>
+	</rule>
+	
+</grammar>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+	<audit savedby="ANG Defaults" timestamp="Wed Sep 12 12:08:10 CDT 2007" version="3.0.1.0" />
+	<domain id="com.intervoice.scxml.ang.client" domain-type="SERVICE">
+		<description value="Advanced Notification Gateway" />
+        <display-name value="ANG Client"/>
+		<property key="Url" javascript-validators="validateUrl()">
+			<app-value value="http://127.0.0.1:8080/AdvancedNotificationGateway/postAlert" />
+			<default-value value="http://127.0.0.1:8080/AdvancedNotificationGateway/postAlert" />
+			<description value="Http Address of ANG location." />
+		</property>
+		<property key="ConnectionTimeout" javascript-validators="validateIntegerRange(10000, 50000);">
+			<app-value value="10000" />
+			<default-value value="10000" />
+			<description value="Timeout value is in milliseconds, to be used when opening a communications link to the resource referenced by ANG URLConnection.(10000 - 50000)"  />
+		</property>
+		<property key="ReadTimeout" javascript-validators="validateIntegerRange(10000, 50000);">
+			<app-value value="10000" />
+			<default-value value="10000" />
+			<description value="Timeout value is in milliseconds. A non-zero value specifies the timeout when reading from Input stream when a connection is established to ANG.(10000 - 50000)" />
+		</property>
+	</domain>
+</domains>

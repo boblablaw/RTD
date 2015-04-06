@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icxml:icxml xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gtfns="http://www.intervoice.com/gtfns/1.0" xmlns:icxml="http://www.intervoice.com/icxml" xmi:id="_kwO6ER6KEeCmXNWSPyAURA" type="voiceType" gtfns:version="1.5.1.0">
+  <icxml:variables xmi:id="_kwO6FB6KEeCmXNWSPyAURA">
+    <icxml:variable xmi:id="_kwO6FR6KEeCmXNWSPyAURA" name="intv_appType"/>
+    <icxml:variable xmi:id="_kwO6Fh6KEeCmXNWSPyAURA" name="intv_eventName"/>
+    <icxml:variable xmi:id="_kwO6Fx6KEeCmXNWSPyAURA" name="intv_eventData"/>
+    <icxml:variable xmi:id="_kwO6GB6KEeCmXNWSPyAURA" name="intv_noFieldsInitialized"/>
+    <icxml:variable xmi:id="_kwO6GR6KEeCmXNWSPyAURA" name="intv_allFieldsInitialized"/>
+    <icxml:variable xmi:id="_kwO6Gh6KEeCmXNWSPyAURA" name="intv_atLeastOneSituationExecuted"/>
+    <icxml:variable xmi:id="_kwO6Gx6KEeCmXNWSPyAURA" name="intv_modalities"/>
+  </icxml:variables>
+  <icxml:form xsi:type="icxml:VoiceBegin" xmi:id="_kwO6HB6KEeCmXNWSPyAURA" id="voiceBegin_janwon" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:comment xmi:id="_kwO6IR6KEeCmXNWSPyAURA"/><icxml:voiceBegin xmi:id="_kwO6Ih6KEeCmXNWSPyAURA"/><icxml:default xmi:id="_aXk6QMyWEeOnbMCsC_goSw" target="_mr-WAMyUEeOnbMCsC_goSw" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_VPTtYB6LEeCmXNWSPyAURA" id="goToBlock_qudvog" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_VPTtYR6LEeCmXNWSPyAURA" functionalBlockName="/resource/RocheRTD/applications/voice/VB_AppStart.diagram" description="Application Start"/><icxml:comment xmi:id="_VPTtYh6LEeCmXNWSPyAURA"/></icxml:form>
+  <icxml:form xsi:type="icxml:Script" xmi:id="_mr9u-MyUEeOnbMCsC_goSw" id="script_larhar" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:script xmi:id="_mr9u-cyUEeOnbMCsC_goSw" inline="false"><icxml:scriptFile xmi:id="_mr9u-syUEeOnbMCsC_goSw" filename="'/scripts/js/Globals.js'"/><icxml:scriptFile xmi:id="_mr9u-8yUEeOnbMCsC_goSw" filename="'/scripts/js/Universals.js'"/><icxml:scriptFile xmi:id="_mr9u_MyUEeOnbMCsC_goSw" filename="'/scripts/js/GlobalOverrides.js'"/><icxml:scriptFile xmi:id="_mr9u_cyUEeOnbMCsC_goSw" filename="'/scripts/js/GateKeeperMapMaker.js'"/><icxml:scriptFile xmi:id="_mr9u_syUEeOnbMCsC_goSw" filename="'/scripts/js/menus/Start_ACTION.js'"/><icxml:scriptFile xmi:id="_mr9u_8yUEeOnbMCsC_goSw" filename="'/scripts/js/CheckPoint.js'"/><icxml:scriptFile xmi:id="_mr9vAMyUEeOnbMCsC_goSw" filename="'/scripts/js/functions.js'"/><icxml:scriptFile xmi:id="_mr9vAcyUEeOnbMCsC_goSw" filename="'/scripts/js/SIR.js'"/></icxml:script><icxml:comment xmi:id="_mr9vAsyUEeOnbMCsC_goSw"/><icxml:default xmi:id="_eoTvoMyWEeOnbMCsC_goSw" target="_RdxA8MyWEeOnbMCsC_goSw" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:Script" xmi:id="_mr-WAMyUEeOnbMCsC_goSw" id="script_narrur" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:script xmi:id="_mr-WAcyUEeOnbMCsC_goSw" inline="true"><icxml:scriptInline xmi:id="_mr-WAsyUEeOnbMCsC_goSw"><![CDATA[_ws.appName = '';
+try {
+	_ws.appName = Packages.com.intervoice.scxml.runtime.model.ScriptSupport.getScxmlContext().getScxmlSession().getApplication().getName();
+} catch (e) {
+}]]></icxml:scriptInline></icxml:script><icxml:comment xmi:id="_mr-WA8yUEeOnbMCsC_goSw"/><icxml:default xmi:id="_mr-WBMyUEeOnbMCsC_goSw" target="_mr9u-MyUEeOnbMCsC_goSw" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:Calculate" xmi:id="_RdxA8MyWEeOnbMCsC_goSw" id="calc_rutcej" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:calculate xmi:id="_RdxoAMyWEeOnbMCsC_goSw"><icxml:calculateValue xmi:id="_RdxoAcyWEeOnbMCsC_goSw" result="_ws.primaryDNIS" expr="'30450'"/><icxml:calculateValue xmi:id="_ThH_0MyWEeOnbMCsC_goSw" result="_ws.skip" expr="'True'"/></icxml:calculate><icxml:comment xmi:id="_RdxoAsyWEeOnbMCsC_goSw"/><icxml:default xmi:id="_fJWnMMyWEeOnbMCsC_goSw" target="_X3DeQMyWEeOnbMCsC_goSw" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:Log" xmi:id="_X3DeQMyWEeOnbMCsC_goSw" id="log_hanvuh" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:log xmi:id="_X3DeQcyWEeOnbMCsC_goSw" logTo="'Default'"><icxml:logValue xmi:id="_X3EFUMyWEeOnbMCsC_goSw" expr="'RTD Default loaded,' + ' DNIS: ' + _ws.primaryDNIS"/></icxml:log><icxml:comment xmi:id="_X3EFUcyWEeOnbMCsC_goSw"/><icxml:default xmi:id="_flES0MyWEeOnbMCsC_goSw" target="_VPTtYB6LEeCmXNWSPyAURA" label=""/></icxml:form>
+</icxml:icxml>

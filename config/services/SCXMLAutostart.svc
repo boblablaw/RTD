@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+	<!-- <audit> indicates who saved the configuration and when.  Not necessary to change but must be present. -->
+	<audit savedby="default-values" timestamp="Wed Sep 12 12:08:10 CDT 2007" version="3.0.0.0" />
+	
+	<!--
+		Autostart functionality provides a mechanism to automatically load and
+		run SCXML documents during application startup.  The document must be able
+		to run under the following conditions:
+			*  non-interactive (i.e., it does not expect any external events)
+			*  it will not actually render any output
+			*  it will not have access to Call Control or Voice Custom Actions
+			   since it is not actually connected to a call
+		
+		This file adheres to the schema used by Common Configuration.  
+		
+		The autostart property domain is "com.intervoice.scxml.runtime.autostart".  
+		
+		Any property key that starts with "application_" is assumed to have an 
+		autostart document as the property value.
+		
+	 -->
+	<!-- Autostart domain - DO NOT MODIFY THE DOMAIN ID-->
+	<domain id="com.intervoice.scxml.runtime.autostart" domain-type="SERVICE" allow-add="true">
+		<description value="URLs that will be automatically run at application startup" />
+        <display-name value="Application Startup Service"/>		
+
+		<!-- 	Autostart keys must begin with "application_" followed by a unique identifier
+				e.g. "application_01" "application_testUrl" are valid keys
+
+				The value is the url of the scxml document to run followed by any url parameters. 
+				For example:
+				exampleDocument.scxml?var1=val1&amp;var2=val2&amp;instancecount=3
+				
+				For this example, the file "exampleDocument.scxml" is assumed to be at the root of the
+				application context.  Also note that ampersand characters must be XML escaped 
+				as "&amp;" to avoid XML parse errors.
+				
+				Finally, there is one parameter "instancecount" that is reserved and indicates to SC Engine
+				the number SCXML Session instances that should be started for this particular document.
+				If "instancecount" is omitted, the default number of instances is one (1).  
+
+		   		Note use of requires-restart functionality.  Changes to these property values require application
+		   		to be redeployed to load an execute new documents.
+		-->
+		<!-- 
+		<property key="application_example" requires-restart="application">
+			<app-value value="exampleDocument.scxml?var1=val1&amp;var2=val2" />
+			<default-value value="" /> 
+			<description value="" /> 
+		</property>
+		-->
+	</domain>
+</domains>

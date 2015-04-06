@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:icxml="http://www.intervoice.com/icxml" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_twiMEG6nEeGtte0T2z7rbQ" type="Icxml" name="VB_ID3075_SerialTypeCheck.diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_tw1HCW6nEeGtte0T2z7rbQ" type="2047">
+    <children xmi:type="notation:DecorationNode" xmi:id="_tw1HC26nEeGtte0T2z7rbQ" type="5047">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_tw1HDG6nEeGtte0T2z7rbQ" y="5"/>
+    </children>
+    <element xmi:type="icxml:FunctionalBlockEntry" href="VB_ID3075_SerialTypeCheck.icxml#_tw1HCG6nEeGtte0T2z7rbQ"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tw1HCm6nEeGtte0T2z7rbQ" x="24" y="108" width="0" height="0"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_K09Sw2-TEeGtte0T2z7rbQ" type="2004">
+    <children xmi:type="notation:DecorationNode" xmi:id="_K09SxW-TEeGtte0T2z7rbQ" type="5004">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_K09Sxm-TEeGtte0T2z7rbQ" y="5"/>
+    </children>
+    <element xmi:type="icxml:Decision" href="VB_ID3075_SerialTypeCheck.icxml#_K00I0G-TEeGtte0T2z7rbQ"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K09SxG-TEeGtte0T2z7rbQ" x="156" y="108" width="0" height="0"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_6q-6E6EMEeGCG7DBVtSBdg" type="2048">
+    <children xmi:type="notation:DecorationNode" xmi:id="_6q-6FqEMEeGCG7DBVtSBdg" type="5048">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_6q-6F6EMEeGCG7DBVtSBdg" y="5"/>
+    </children>
+    <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_6q-6FKEMEeGCG7DBVtSBdg"/>
+    <element xmi:type="icxml:FunctionalBlockCall" href="VB_ID3075_SerialTypeCheck.icxml#_6q-6EKEMEeGCG7DBVtSBdg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6q-6FaEMEeGCG7DBVtSBdg" x="336" y="24" width="0" height="0"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_w1cmECyTEeOAKd86aGbMBg" type="2048" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_w1dNICyTEeOAKd86aGbMBg" type="5048">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_w1dNISyTEeOAKd86aGbMBg" y="5"/>
+    </children>
+    <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_w1cmESyTEeOAKd86aGbMBg"/>
+    <element xmi:type="icxml:FunctionalBlockCall" href="VB_ID3075_SerialTypeCheck.icxml#_w1bX8CyTEeOAKd86aGbMBg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w1cmEiyTEeOAKd86aGbMBg" x="336" y="195" width="0" height="0"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_twiMEW6nEeGtte0T2z7rbQ"/>
+  <element xmi:type="icxml:RootType" href="VB_ID3075_SerialTypeCheck.icxml#_twFgIW6nEeGtte0T2z7rbQ"/>
+  <edges xmi:type="notation:Connector" xmi:id="_35qpAaEMEeGCG7DBVtSBdg" type="4001" source="_tw1HCW6nEeGtte0T2z7rbQ" target="_K09Sw2-TEeGtte0T2z7rbQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_35qpBKEMEeGCG7DBVtSBdg" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_35qpBaEMEeGCG7DBVtSBdg" y="7"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_35qpAqEMEeGCG7DBVtSBdg"/>
+    <element xmi:type="icxml:DefaultConnection" href="VB_ID3075_SerialTypeCheck.icxml#_35qpAKEMEeGCG7DBVtSBdg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_35qpA6EMEeGCG7DBVtSBdg" points="[29, -2, -91, -2]$[90, 0, -30, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_xq4iYJr2EeOtDbip2HXaTA" type="4001" source="_K09Sw2-TEeGtte0T2z7rbQ" target="_6q-6E6EMEeGCG7DBVtSBdg">
+    <children xmi:type="notation:DecorationNode" xmi:id="_xq5JcJr2EeOtDbip2HXaTA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_xq5JcZr2EeOtDbip2HXaTA" y="7"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_xq4iYZr2EeOtDbip2HXaTA" fontName="Segoe UI"/>
+    <element xmi:type="icxml:DefaultConnection" href="VB_ID3075_SerialTypeCheck.icxml#_xq37UJr2EeOtDbip2HXaTA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xq4iYpr2EeOtDbip2HXaTA" points="[29, -13, -151, 71]$[179, -62, -1, 22]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_yQ5ZgJr2EeOtDbip2HXaTA" type="4002" source="_K09Sw2-TEeGtte0T2z7rbQ" target="_w1cmECyTEeOAKd86aGbMBg">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yQ6AkJr2EeOtDbip2HXaTA" type="6002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_yQ6AkZr2EeOtDbip2HXaTA" y="7"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_yQ5ZgZr2EeOtDbip2HXaTA" fontName="Segoe UI"/>
+    <element xmi:type="icxml:ConditionalConnection" href="VB_ID3075_SerialTypeCheck.icxml#_yQ4LYJr2EeOtDbip2HXaTA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yQ5Zgpr2EeOtDbip2HXaTA" points="[29, 11, -151, -76]$[209, 65, 29, -22]"/>
+  </edges>
+</notation:Diagram>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0">
+  <audit savedby="ICS Translate Table" timestamp="Thu Apr 24 15:26:22 CDT 2014" version="3.0.0.0"/>
+  <domain allow-add="false" displayable="true" domain-type="TT" id="" preprocessor="application/ecmascript">
+    <description value="ICS Translate Table"/>
+    <display-name value="Options.tt"/>
+    <property key="blindXferNum">
+      <app-value value="'sip:11223344@192.168.19.51'"/>
+      <description value="destination for blind xfer"/>
+    </property>
+    <property key="blindXferOverrideAni">
+      <app-value value="&quot;sip:myOverrideANI@myHost.com&quot;"/>
+      <description value="empty quotes for none, or specify the value. If it's sip, it must begin with sip:"/>
+    </property>
+    <property key="consultXferNum">
+      <app-value value="'sip:92145977934@192.168.19.29'"/>
+      <description value="destination for consult xfer"/>
+    </property>
+    <property key="consultXferOverrideAni">
+      <app-value value="&quot;sip:consultCallOverrideAni@myHost.com&quot;"/>
+      <description value="empty quotes for none, or specify the value."/>
+    </property>
+    <property key="blindXferRedirectHostIP">
+      <app-value value="'@10.23.63.21'"/>
+      <description value="full value will be sip:valueFromCiscoRouteRequest@blindXferRedirectHostIP"/>
+    </property>
+  </domain>
+</domains>

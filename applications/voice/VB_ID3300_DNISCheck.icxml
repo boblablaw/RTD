@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icxml:icxml xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gtfns="http://www.intervoice.com/gtfns/1.0" xmlns:icxml="http://www.intervoice.com/icxml" xmi:id="_7SxoAW92EeGtte0T2z7rbQ" type="voiceBlockType" gtfns:version="1.5.1.0">
+  <icxml:variables xmi:id="_7SxoBG92EeGtte0T2z7rbQ">
+    <icxml:variable xmi:id="_7SxoBW92EeGtte0T2z7rbQ" name="intv_appType"/>
+    <icxml:variable xmi:id="_7SxoBm92EeGtte0T2z7rbQ" name="intv_eventName"/>
+    <icxml:variable xmi:id="_7SxoB292EeGtte0T2z7rbQ" name="intv_eventData"/>
+    <icxml:variable xmi:id="_7SxoCG92EeGtte0T2z7rbQ" name="intv_noFieldsInitialized"/>
+    <icxml:variable xmi:id="_7SxoCW92EeGtte0T2z7rbQ" name="intv_allFieldsInitialized"/>
+    <icxml:variable xmi:id="_7SxoCm92EeGtte0T2z7rbQ" name="intv_atLeastOneSituationExecuted"/>
+    <icxml:variable xmi:id="_7SxoC292EeGtte0T2z7rbQ" name="intv_modalities"/>
+  </icxml:variables>
+  <icxml:form xsi:type="icxml:BlockEntry" xmi:id="_7SxoDG92EeGtte0T2z7rbQ" id="blockEntry_cipluf" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:blockEntry xmi:id="_7SxoEW92EeGtte0T2z7rbQ" description="Description - ..."/><icxml:comment xmi:id="_7SxoEm92EeGtte0T2z7rbQ"/><icxml:default xmi:id="_rzkVIDEIEeO1IvC7fto4tg" target="_SlrnoG-UEeGtte0T2z7rbQ" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_SlrnoG-UEeGtte0T2z7rbQ" id="goToBlock_fomrah" gtfns:name="RTD" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_SlrnoW-UEeGtte0T2z7rbQ" functionalBlockName="/resource/RocheRTD/applications/voice/VB_ID3350_RTDProductName.diagram" description="Description - ..."/><icxml:comment xmi:id="_Slrnom-UEeGtte0T2z7rbQ"/></icxml:form>
+</icxml:icxml>

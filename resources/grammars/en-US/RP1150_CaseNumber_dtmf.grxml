@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<grammar version="1.0" 
+	xmlns="http://www.w3.org/2001/06/grammar" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.w3.org/TR/speech-grammar/grammar.xsd" 
+    tag-format='swi-semantics/1.0'
+	xml:lang="en-US" mode="dtmf" root="root">
+	<!-- ############################################## -->
+	<meta name="Parameters" content="" />
+	<meta name="ASR_Engine" content="Nuance" />
+	<meta name="Language" content="en-us" />
+	<meta name="Description" content="RP1150_CaseNumber_dtmf grammar" />
+	<meta name="Usage_Notes" content="" />
+	<meta name="Associated_Files" content="" />
+	<meta name="ASR_Version" content="9.x" />
+	<!-- ############################################## -->
+
+
+<rule id="root" scope="public">
+  	
+	<one-of>
+		        
+        
+        <item> 
+            <one-of>
+			<item><ruleref uri='#caseid'/><tag>DATA=caseid.CHOICE</tag></item>
+            </one-of>
+          
+			<tag>CHOICE='caseid'</tag>
+		</item>
+       
+        
+ </one-of>
+</rule>
+
+<rule id="caseid" scope="public">
+	
+	<one-of>
+		
+		<!--CA + 7 digit -->		
+		<item>
+			<ruleref uri="#digits_seven"/><tag> CHOICE= digits_seven.DIGITSTRING </tag>
+		</item>
+		
+	</one-of>
+</rule>
+
+
+
+<rule id="digits_seven" scope="public">
+	<item>
+					<tag>DIGITSTRING='';</tag>
+					
+					<item> <ruleref uri="#digit"/>
+						<tag>DIGITSTRING=digit.DIGIT;</tag>
+					</item>
+					<item><ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+					<item>	<ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+					<item>	<ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+					<item>	<ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+					<item>	<ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+					<item>	<ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+	
+	</item>
+</rule>
+
+
+<rule id="digit" scope="public">
+		<one-of>
+			<item><tag>DIGIT='1';</tag>1</item>
+			<item><tag>DIGIT='2';</tag>2</item>
+			<item><tag>DIGIT='3';</tag>3</item>
+			<item><tag>DIGIT='4';</tag>4</item>
+			<item><tag>DIGIT='5';</tag>5</item>
+			<item><tag>DIGIT='6';</tag>6</item>
+			<item><tag>DIGIT='7';</tag>7</item>
+			<item><tag>DIGIT='8';</tag>8</item>
+			<item><tag>DIGIT='9';</tag>9</item>
+			<item><tag>DIGIT='0';</tag>0</item>
+		</one-of>
+</rule>
+
+</grammar>

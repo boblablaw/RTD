@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+	<audit savedby="eclipse" timestamp="Apr 1 13:08:10 CDT 2008" version="3.0.0.0" />
+	<domain id="com.intervoice.scxml.http.client" domain-type="SERVICE">
+		<description value="HTTP Client" />
+        	<display-name value="HTTP Client"/>
+		<property key='HTTPVersion'>
+			<app-value value='1.1' />
+			<default-value value='1.1' />
+			<description value="The effective HTTP version. (1.0 or 1.1)" />
+		</property>
+		<property key='CookiePolicy'>
+			<app-value value='RFC2109' />
+			<default-value value='RFC2109' />
+			<description value="The specification of the cookie policy. (RFC2109,RFC2965,Netscape,Compatible, none." />
+		</property>
+		<property key='ProxySupport'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Proxy Support:None,HttpProxy,Tunnel" />
+		</property>
+		<property key='ProxyAddress'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Fully Qualified Host Name" />
+		</property>
+		<property key='ProxyPort'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Port Number" />
+		</property>
+		<property key='ProxyUserName'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Proxy User Name" />
+		</property>
+		<property key='ProxyPassword'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Proxy Password" />
+		</property>
+		<property key='ProxyAuthentication'>
+			<app-value value='None' />
+			<default-value value='None' />
+			<description value="Proxy Authentication:None,Basic,Digest,NTLM" />
+		</property>
+		<property key='ProxyNTLMOriginatingHostName'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Proxy NTLM Originating Host Name" />
+		</property>
+		<property key='ProxyNTLMDomain'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Proxy NTLM Domain" />
+		</property>
+		<property key='ProxyExemptURLs'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="URLs that are exempt from the proxy" />
+		</property>
+		<property key='ServerAuthentication'>
+			<app-value value='None' />
+			<default-value value='None' />
+			<description value="Proxy Authentication:None,Basic,Digest,NTLM" />
+		</property>
+		<property key='ServerNTLMOriginatingHostName'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Server NTLM Originating Host Name" />
+		</property>
+		<property key='ServerNTLMDomain'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Server NTLM Domain" />
+		</property>
+		<property key='RedirectionMax'>
+			<app-value value='0' />
+			<default-value value='0' />
+			<description value="Maximum number of redirections allowed for a HTTP connection" />
+		</property>
+		<property key='SSLCertificateStore'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Path location to the SSL Certification Store" />
+		</property>
+		<property key='SSLCertificatePassword'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="SSL Certification Store password" />
+		</property>
+		<property key='SSLTrustStore'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Path location to the SSL Trust Store" />
+		</property>
+		<property key='SSLTrustPassword'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="SSL Trust Store password" />
+		</property>
+		
+		<!-- 
+		<property key='URLEncodedCharacters'>
+			<app-value value='' />
+			<default-value value='' />
+			<description value="Hex values of URL Encoding Characters   Example:00-2f,3a,3b,3c,3d,3e,3f,40,7f" />
+		</property>
+		<property key='RawData'>
+			<app-value value='false' />
+			<default-value value='false' />
+			<description value="Process non-Http conforming responses"/>
+		</property>  -->
+		
+	</domain>
+</domains>

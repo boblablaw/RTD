@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+	<audit savedby="eclipse" timestamp="Wed Sep 12 12:08:10 CDT 2007" version="3.0.0.0" />
+	<domain id="com.intervoice.scxml.runtime.callcontrol" domain-type="SERVICE">
+		<description value="Call Control I/O Processor" />
+        <display-name value="Call Control I/O Processor"/>
+		<property key="createSessionServiceDefault">
+			<app-value value="http://localhost:10000/createsession" />
+			<default-value value="http://localhost:10000/createsession" />
+			<description value="HTTP Address of default CCXML/SIP IO Processor" />
+		</property>
+		<property key="callControlBaseURLDefault" must-change="true">
+			<app-value value="http://localhost:8080/SCEDefault/sceccxml.ccxml" />
+			<default-value value="http://localhost:8080/SCEDefault/sceccxml.ccxml" />
+			<description value="Base URL for SCXML requests - sceccxml.ccxml launches main.scxml by default" />
+		</property>
+	</domain>
+</domains>

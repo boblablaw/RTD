@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icxml:icxml xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gtfns="http://www.intervoice.com/gtfns/1.0" xmlns:icxml="http://www.intervoice.com/icxml" xmi:id="_3N75gakTEeOcJoJ7l1wrgQ" type="voiceBlockType" gtfns:version="1.5.1.0">
+  <icxml:variables xmi:id="_3N75hKkTEeOcJoJ7l1wrgQ">
+    <icxml:variable xmi:id="_3N75hakTEeOcJoJ7l1wrgQ" name="intv_appType"/>
+    <icxml:variable xmi:id="_3N75hqkTEeOcJoJ7l1wrgQ" name="intv_eventName"/>
+    <icxml:variable xmi:id="_3N75h6kTEeOcJoJ7l1wrgQ" name="intv_eventData"/>
+    <icxml:variable xmi:id="_3N8gkKkTEeOcJoJ7l1wrgQ" name="intv_noFieldsInitialized"/>
+    <icxml:variable xmi:id="_3N8gkakTEeOcJoJ7l1wrgQ" name="intv_allFieldsInitialized"/>
+    <icxml:variable xmi:id="_3N8gkqkTEeOcJoJ7l1wrgQ" name="intv_atLeastOneSituationExecuted"/>
+    <icxml:variable xmi:id="_3N8gk6kTEeOcJoJ7l1wrgQ" name="intv_modalities"/>
+    <icxml:variable xmi:id="_OEA5YKkUEeOcJoJ7l1wrgQ" name="result"/>
+    <icxml:variable xmi:id="_OEBgcKkUEeOcJoJ7l1wrgQ" name="dummy"/>
+  </icxml:variables>
+  <icxml:form xsi:type="icxml:BlockEntry" xmi:id="_3N8glKkTEeOcJoJ7l1wrgQ" id="blockEntry_cefzip" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:blockEntry xmi:id="_3OBZEKkTEeOcJoJ7l1wrgQ" description="Description - ..."/><icxml:comment xmi:id="_3OBZEakTEeOcJoJ7l1wrgQ"/><icxml:default xmi:id="_-akB0KkfEeOcJoJ7l1wrgQ" target="_XP84gKmYEeOcJoJ7l1wrgQ" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:If" xmi:id="_jQ9-UKkfEeOcJoJ7l1wrgQ" id="if_kuzlul" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:if xmi:id="_jQ9-UakfEeOcJoJ7l1wrgQ" elseLabel="NonDPVantage"><icxml:ifValue xmi:id="_jQ-lYKkfEeOcJoJ7l1wrgQ" expr="(_ws.instrumentName == 'iscancoreoau') || (_ws.instrumentName == 'iScan Coreo AU') || (_ws.instrumentName == 'iScan HT') || (_ws.instrumentName == 'iScan HT IVD') || (_ws.instrumentName == 'iScan HT RUO')  || (_ws.instrumentName == 'iscanhtruo') || (_ws.instrumentName == 'vantagesystems') || (_ws.instrumentName == 'Vantage Systems') || (_ws.instrumentName == 'VIAS')  || (_ws.instrumentName == 'vias')" label="DPVantage"/></icxml:if><icxml:comment xmi:id="_jQ-lYakfEeOcJoJ7l1wrgQ"/><icxml:default xmi:id="_9rA0MKkfEeOcJoJ7l1wrgQ" target="_5eABMKkfEeOcJoJ7l1wrgQ" gtfns:name="NonDPVantage" label="NonDPVantage"/><icxml:conditional xmi:id="_8Dgq4KkfEeOcJoJ7l1wrgQ" target="_3DCaoKkfEeOcJoJ7l1wrgQ" gtfns:name="DPVantage" label="DPVantage"/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_3DCaoKkfEeOcJoJ7l1wrgQ" id="goToBlock_petyug" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_3DCaoakfEeOcJoJ7l1wrgQ" functionalBlockName="/resource/RocheRTD/applications/voice/VB_ID3625_DPVantageInstrument.diagram" description="Description - ..."/><icxml:comment xmi:id="_3DCaoqkfEeOcJoJ7l1wrgQ"/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_5eABMKkfEeOcJoJ7l1wrgQ" id="goToBlock_bayruc" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_5eABMakfEeOcJoJ7l1wrgQ" functionalBlockName="/resource/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.diagram" description="Description - ..."/><icxml:comment xmi:id="_5eABMqkfEeOcJoJ7l1wrgQ"/></icxml:form>
+  <icxml:form xsi:type="icxml:Calculate" xmi:id="_XP84gKmYEeOcJoJ7l1wrgQ" id="calc_bexcef" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:calculate xmi:id="_XP9fkKmYEeOcJoJ7l1wrgQ"><icxml:calculateValue xmi:id="_XP9fkamYEeOcJoJ7l1wrgQ" result="dummy" expr="_ws.instrumentName"/></icxml:calculate><icxml:comment xmi:id="_XP-GoKmYEeOcJoJ7l1wrgQ"/><icxml:default xmi:id="_cxZu4KmYEeOcJoJ7l1wrgQ" target="_jQ9-UKkfEeOcJoJ7l1wrgQ" label=""/></icxml:form>
+</icxml:icxml>

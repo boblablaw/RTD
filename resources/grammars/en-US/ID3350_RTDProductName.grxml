@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<grammar version="1.0" 
+	xmlns="http://www.w3.org/2001/06/grammar" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.w3.org/TR/speech-grammar/grammar.xsd" 
+    tag-format='swi-semantics/1.0'
+	xml:lang="en-US" mode="voice" root="root">
+	<!-- ############################################## -->
+	<meta name="Parameters" content="" />
+	<meta name="ASR_Engine" content="Nuance" />
+	<meta name="Language" content="en-us" />
+	<meta name="Description" content="ID3400_ClinChemProductName grammar" />
+	<meta name="Usage_Notes" content="" />
+	<meta name="Associated_Files" content="" />
+	<meta name="ASR_Version" content="9.x" />
+	<!-- ############################################## -->
+
+<lexicon uri="user_dictionary_en-US.xml?SWI.type=backup"/>
+   <rule id="root" scope="public">
+      <one-of>
+         <item>
+            <one-of>
+               <item>benchmark special stains</item>
+               <item>benchmark</item>
+               <item>special stains</item>
+               <item>stains</item>
+               <item>s s</item>
+            </one-of>
+            <tag>CHOICE='benchmarkspecialstains'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>benchmark ultra</item>
+               <item>ultra benchmark</item>
+               <item>ultra x t</item>
+               <item>ultra view</item>
+            </one-of>
+            <tag>CHOICE='benchmarkultra'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>benchmark x t l t</item>
+               <item>benchmark x t</item>
+               <item>benchmark l t</item>
+               <item>ventana</item>
+               <item>x t l t</item>
+               <item>l t</item>
+            </one-of>
+            <tag>CHOICE='benchmarkxtlt'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>x t</item>
+            </one-of>
+            <tag>CHOICE='xt'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>discovery</item>
+               <item>disco</item>
+            </one-of>
+            <tag>CHOICE='discovery'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>discovery ultra</item>
+               <item>disco ultra</item>
+            </one-of>
+            <tag>CHOICE='discoveryultra'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>discovery x t</item>
+               <item>disco x t</item>
+            </one-of>
+            <tag>CHOICE='discoveryxt'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>ultra</item>
+            </one-of>
+            <tag>CHOICE='ultra'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>i scan</item>	
+               <item>iscan</item>
+               <item>i scan coreo</item>
+               <item>i scan core e o a u</item>
+               <item>i scan core e o gold</item>
+               <item>i scan core e o a u</item>
+               <item>core e o</item>
+               <item>coreo gold</item>
+               <item>core e o gold</item>
+               <item>coreo a u</item>
+               <item>core e o a u</item>
+               <item>coreo</item>
+               <item>digital imaging</item>
+            </one-of>
+            <tag>CHOICE='iscancoreoau'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>i scan h t r u o</item>
+               <item>i scan h t</item>
+            </one-of>
+            <tag>CHOICE='iscanhtruo'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>nexus</item>
+               <item>nexus i h c</item>
+               <item>nexes i h c</item>
+               <item>nexes</item>
+               <item>nex e s</item>
+               <item>nex e s i h c</item>
+               <item>i h c</item>
+            </one-of>
+            <tag>CHOICE='nexesihc'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>nexes</item>
+               <item>nex e s</item>
+               <item>special stainer</item>
+               <item>nexes special stainer</item>
+               <item>nex e s special stainer</item>
+               <item>nexes special stains</item>
+               <item>nex e s special stains</item>
+            </one-of>
+            <tag>CHOICE='nexesspecialstains'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>symphony</item>
+               <item>symphony stains</item>
+            </one-of>
+            <tag>CHOICE='symphony'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>symphony s plus</item>
+               <item>s plus</item>
+            </one-of>
+            <tag>CHOICE='symphonysplus'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>vantage</item>
+               <item>vantage systems</item>
+               <item>vantage station</item>
+               <item>vantage workstation</item>
+               <item>virtuoso</item>
+            </one-of>
+            <tag>CHOICE='vantagesystems'</tag>
+         </item>
+         <item>
+            <one-of>
+               <item>vias</item>
+               <item>microscope</item>
+               <item>v i a s</item>
+               <item>imaging</item>
+               <item>vie us</item>
+            </one-of>
+            <tag>CHOICE='vias'</tag>
+         </item>
+         <item> 
+            <one-of>
+		      <item><ruleref uri='dontKnow_N9.grxml#root'/></item>
+              <item>none</item> <!-- tuning 2014 -->
+              <item>it's not an instrument</item><!-- tuning 2014 -->
+              <item>no instrument</item><!-- tuning 2014 -->
+              <item>there is no instrument</item><!-- tuning 2014 -->
+			</one-of>
+			<tag>CHOICE='dontknowit'</tag>
+		 </item>
+      </one-of>
+   </rule>
+</grammar>

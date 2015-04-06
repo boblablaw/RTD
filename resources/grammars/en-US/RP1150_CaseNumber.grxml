@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<grammar version="1.0" 
+	xmlns="http://www.w3.org/2001/06/grammar" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.w3.org/TR/speech-grammar/grammar.xsd" 
+    tag-format='swi-semantics/1.0'
+	xml:lang="en-US" mode="voice" root="root">
+	<!-- ############################################## -->
+	<meta name="Parameters" content="" />
+	<meta name="ASR_Engine" content="Nuance" />
+	<meta name="Language" content="en-us" />
+	<meta name="Description" content="RP1150_CaseNumber grammar" />
+	<meta name="Usage_Notes" content="" />
+	<meta name="Associated_Files" content="" />
+	<meta name="ASR_Version" content="9.x" />
+	<!-- ############################################## -->
+
+
+<rule id="root" scope="public">
+  	
+	<one-of>
+		        
+        
+        <item> 
+            <one-of>
+			<item><ruleref uri='#caseid'/><tag>DATA=caseid.CHOICE</tag></item>
+            </one-of>
+          
+			<tag>CHOICE='caseid'</tag>
+		</item>
+       
+        <item> 
+            <one-of>
+			<item><ruleref uri='dontKnow_N9.grxml#root'/></item>
+			<item>no case i d</item> <!-- Tuning Change DIR 09/13/12 -->
+			<item>i don't have a case i d</item> <!-- Tuning Change DIR 09/13/12 -->
+			<item>no case number</item> <!-- Tuning Change DIR 10/02/14 -->
+            </one-of>
+          
+			<tag>CHOICE='dontknowit'</tag>
+		</item>
+       
+        
+ </one-of>
+</rule>
+
+<rule id="caseid" scope="public">
+	<item repeat="0-1"><ruleref uri="#preCaseID"/></item>
+	
+	<one-of>
+		
+		<!--CA + 7 digit -->		
+		<item>
+			<ruleref uri="#digits_seven"/><tag> CHOICE= digits_seven.DIGITSTRING </tag>
+		</item>
+		
+	</one-of>
+</rule>
+
+
+
+<rule id="digits_seven" scope="public">
+	<item>
+					<tag>DIGITSTRING='';</tag>
+					
+					<item> <ruleref uri="#digit"/>
+						<tag>DIGITSTRING=digit.DIGIT;</tag>
+					</item>
+					<item><ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+					<item>	<ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+					<item>	<ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+					<item>	<ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+					<item>	<ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+					<item>	<ruleref uri="#digit"/>
+						<tag>DIGITSTRING=DIGITSTRING + digit.DIGIT;</tag>
+					</item>
+	
+	</item>
+</rule>
+
+
+<rule id="digit" scope="public">
+		<one-of>
+			<item><tag>DIGIT='1';</tag>one</item>
+			<item><tag>DIGIT='2';</tag>two</item>
+			<item><tag>DIGIT='3';</tag>three</item>
+			<item><tag>DIGIT='4';</tag>four</item>
+			<item><tag>DIGIT='5';</tag>five</item>
+			<item><tag>DIGIT='6';</tag>six</item>
+			<item><tag>DIGIT='7';</tag>seven</item>
+			<item><tag>DIGIT='8';</tag>eight</item>
+			<item><tag>DIGIT='9';</tag>nine</item>
+			<item><tag>DIGIT='0';</tag>zero</item>
+			<item weight="0.001"><tag>DIGIT='0';</tag>oh</item>
+		</one-of>
+</rule>
+
+<rule id="preCaseID" scope="public">
+	<item repeat="0-1"><ruleref uri="#hesitation"/></item>
+	<one-of>
+		<item><item><ruleref uri="#myThe"/></item>case id is</item>
+		<item><item><ruleref uri="#myThe"/></item>case number is</item>
+		<item><item><ruleref uri="#myThe"/></item>number is</item>
+		<item>case id</item>
+		<item>case </item>
+		<item>case number</item>
+		<item>t d</item>
+		<item>c a</item>
+	</one-of>
+</rule>
+
+<rule id="myThe" scope="public">
+	<one-of>
+		<item>my</item>
+		<item>the</item>
+	</one-of>
+</rule>
+
+<rule id="hesitation" scope="public">
+	<one-of>
+		<item>um</item>
+		<item>uh</item>
+		<item>ah</item>
+		<item>t d</item>
+		<item>c a</item>
+	</one-of>
+</rule>
+
+</grammar>

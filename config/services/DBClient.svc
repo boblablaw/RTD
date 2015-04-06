@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+      <audit savedby="eclipse" timestamp="Mon Mar 03 08:50:17 CDT 2007" version="3.0.0.0" />
+      <domain id="com.intervoice.scxml.db.client" domain-type="SERVICE">
+            <description value="Database Client"/>
+            <display-name value="DB Client"/>
+            <property key="datasourceDefault">
+                  <app-value value="" />
+                  <default-value value="" />
+                  <description value="Default data source for use by Database Custom Actions." />
+            </property>
+      </domain>
+</domains>

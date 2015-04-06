@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icxml:icxml xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gtfns="http://www.intervoice.com/gtfns/1.0" xmlns:icxml="http://www.intervoice.com/icxml" xmi:id="_S_7QkSftEeOyOajvvR_JvQ" type="voiceType" gtfns:version="1.5.1.0">
+  <icxml:variables xmi:id="_TAM9YCftEeOyOajvvR_JvQ">
+    <icxml:variable xmi:id="_TAM9YSftEeOyOajvvR_JvQ" name="intv_appType"/>
+    <icxml:variable xmi:id="_TAM9YiftEeOyOajvvR_JvQ" name="intv_eventName"/>
+    <icxml:variable xmi:id="_TAM9YyftEeOyOajvvR_JvQ" name="intv_eventData"/>
+    <icxml:variable xmi:id="_TAM9ZCftEeOyOajvvR_JvQ" name="intv_noFieldsInitialized"/>
+    <icxml:variable xmi:id="_TANkcCftEeOyOajvvR_JvQ" name="intv_allFieldsInitialized"/>
+    <icxml:variable xmi:id="_TANkcSftEeOyOajvvR_JvQ" name="intv_atLeastOneSituationExecuted"/>
+    <icxml:variable xmi:id="_TANkciftEeOyOajvvR_JvQ" name="intv_modalities"/>
+  </icxml:variables>
+  <icxml:form xsi:type="icxml:VoiceBegin" xmi:id="_TANkcyftEeOyOajvvR_JvQ" id="voiceBegin_tabsij" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:comment xmi:id="_TA12kCftEeOyOajvvR_JvQ"/><icxml:voiceBegin xmi:id="_TA2doCftEeOyOajvvR_JvQ"/><icxml:default xmi:id="_k3DqMCftEeOyOajvvR_JvQ" target="_j47OAyftEeOyOajvvR_JvQ" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_j47OACftEeOyOajvvR_JvQ" id="goToBlock_yemmob" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_j47OASftEeOyOajvvR_JvQ" functionalBlockName="/resource/RocheRTD/applications/voice/VB_AppStart.diagram" description="Application Start"/><icxml:comment xmi:id="_j47OAiftEeOyOajvvR_JvQ"/></icxml:form>
+  <icxml:form xsi:type="icxml:Comment" xmi:id="_j47OAyftEeOyOajvvR_JvQ" id="comment_pumnit" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:comment xmi:id="_j47OBCftEeOyOajvvR_JvQ"><icxml:commentValue xmi:id="_j47OBSftEeOyOajvvR_JvQ" text="Real app init goes here" type="comment"/></icxml:comment><icxml:default xmi:id="_j47OBiftEeOyOajvvR_JvQ" target="_j47OACftEeOyOajvvR_JvQ" label=""/></icxml:form>
+</icxml:icxml>

@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by Exporter version 1.0 at 2015-04-06 09:45:11.211 GMT-4--><!--Note: Components marked as 'debug' have been removed from the call flow.--><scxml xmlns:icview="http://www.intervoice.com/sce/icview"
+       xmlns:jms="http://www.intervoice.com/sce/action/jms"
+       xmlns:mim="http://www.intervoice.com/sce/action/mim"
+       xmlns:scripting="http://www.intervoice.com/sce/action/scripting"
+       xmlns:xs="http://www.w3.org/2001/XMLSchema"
+       xmlns:process="http://www.intervoice.com/sce/action/process"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:gtfns="http://www.intervoice.com/gtfns/1.0"
+       xmlns="http://www.w3.org/2007/02/scxml"
+       xmlns:icxml="http://www.intervoice.com/icxml"
+       xmlns:xmi="http://www.omg.org/XMI"
+       xmlns:intv="http://www.intervoice.com/scxml"
+       xmlns:vca="http://www.intervoice.com/sce/action/vca"
+       xmlns:ex="http://www.intervoice.com/exporter"
+       initialstate="documentEntry"
+       intv:worksheetscope="applications/voice/Worksheet.ws"
+       version="1.0">
+   <state id="documentEntry">
+      <initial>
+         <transition target="documentEntry_doLocalInit"/>
+      </initial>
+      <state id="documentEntry_doLocalInit">
+         <onentry>
+            <assign location="intv_appType" expr="undefined"/>
+            <rdotype:get xmlns:rdotype="http://www.intervoice.com/sce/action/rdotype"
+                         location="intv_appType"/>
+            <if cond="intv_appType == 'vca'">
+               <assign location="intv_appType" expr="'voice'"/>
+               <elseif cond="intv_appType == 'ccxml'"/>
+               <assign location="intv_appType" expr="'call'"/>
+               <elseif cond="intv_appType == 'UNKNOWN'"/>
+               <assign location="intv_appType" expr="'process'"/>
+            </if>
+         </onentry>
+         <transition target="blockEntry_nigfaj"/>
+      </state>
+      <datamodel><!--Variables from declaration block: _kt5TsG3zEeGdv9jpX9jaxw--><data name="intv_appType" expr="undefined"/>
+         <data name="intv_eventName" expr="undefined"/>
+         <data name="intv_eventData" expr="undefined"/>
+         <data name="intv_noFieldsInitialized" expr="undefined"/>
+         <data name="intv_allFieldsInitialized" expr="undefined"/>
+         <data name="intv_atLeastOneSituationExecuted" expr="undefined"/>
+         <data name="intv_modalities" expr="undefined"/>
+         <data name="Result" expr="undefined"/>
+         <data name="result" expr="undefined"/>
+         <data name="Task" expr="undefined"/>
+         <data name="dummy" expr="undefined"/>
+      </datamodel>
+      <state id="blockEntry_nigfaj">
+         <onentry>
+            <icview:log text="action=entry, type=BlockEntry, name=, id=blockEntry_nigfaj, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=BlockEntry, name=, id=blockEntry_nigfaj, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition target="script_carmay"/>
+      </state>
+      <state id="script_carmay">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_carmay, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/menus/RP1400_SerialNumberCheck.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_carmay, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="subroutineCall_kocxum"/>
+      </state>
+      <state id="subroutineCall_kocxum">
+         <datamodel>
+            <data name="intv_subName"
+                  expr="'/resource/VoiceModule/subroutines/voice/VoiceModule.diagram'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=SubroutineCall, name=, id=subroutineCall_kocxum, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml">
+               <icview:param name="vm" expr="_ws.vm"/>
+            </icview:log>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script><![CDATA[
+					
+						if (intv_subName.search(/^\s*\/resource\/[^\/]+\/subroutines\/[^\/]+\/.+$/) >= 0)
+						{
+							var libName = intv_subName.replace(/^\s*\/resource(\/[^\/]+\/subroutines\/[^\/]+\/).+$/, '$1');
+							
+							if (libName != undefined && libName != '') 
+							{
+								var libMatch = 0;
+								
+								for (var i = _ws.intv_librarySize; i > 0; i--) 
+								{
+									var libEntry = _ws.intv_libraryList[i - 1];
+									
+									if (libEntry == libName) 
+									{
+										libMatch = i;
+										break;
+									}
+								}
+								
+								if (libMatch == 0) 
+								{
+									_ws.intv_libraryList[_ws.intv_librarySize++] = libName;
+								}
+							}
+						}
+					
+				]]></scripting:script>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=SubroutineCall, name=, id=subroutineCall_kocxum, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <invoke targettype="x-scxml-component"
+                 src="/VoiceModule/subroutines/voice/VoiceModule.scxml">
+            <param name="vm" expr="_ws.vm"/>
+         </invoke>
+         <transition event="subroutineCall_kocxum.invoke.done"/>
+         <transition event="Success" target="case_vapgiw">
+            <assign location="result" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:Success, type=SubroutineCall, name=, id=subroutineCall_kocxum, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml">
+               <icview:result name="resultVariable" expr="result"/>
+            </icview:log>
+         </transition>
+         <transition event="Error" target="calc_peqgig">
+            <assign location="result" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:Error, type=SubroutineCall, name=, id=subroutineCall_kocxum, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml">
+               <icview:result name="resultVariable" expr="result"/>
+            </icview:log>
+         </transition>
+      </state>
+      <state id="case_vapgiw">
+         <datamodel>
+            <data expr="false" name="case_expr_case_vapgiw"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=Case, name=GLOBAL, id=case_vapgiw, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml">
+               <icview:param name="TSS" value="'representative'"/>
+            </icview:log>
+            <assign location="case_expr_case_vapgiw" expr="result.result.GLOBAL"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Case, name=GLOBAL, id=case_vapgiw, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="case_expr_case_vapgiw == 'representative'" target="if_sobnow">
+            <icview:log text="action=leg:TSS, type=Case, name=GLOBAL, id=case_vapgiw, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+         <transition cond="true" target="case_rupwun">
+            <icview:log text="action=leg:default, type=Case, name=GLOBAL, id=case_vapgiw, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="case_rupwun">
+         <datamodel>
+            <data expr="false" name="case_expr_case_rupwun"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=Case, name=CHOICE, id=case_rupwun, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml">
+               <icview:param name="Yes" value="'yes'"/>
+               <icview:param name="DontKnow" value="'idontknow'"/>
+            </icview:log>
+            <assign location="case_expr_case_rupwun" expr="result.result.CHOICE"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Case, name=CHOICE, id=case_rupwun, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="case_expr_case_rupwun == 'yes'" target="script_cucfug">
+            <icview:log text="action=leg:Yes, type=Case, name=CHOICE, id=case_rupwun, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+         <transition cond="case_expr_case_rupwun == 'idontknow'" target="script_zenfam">
+            <icview:log text="action=leg:DontKnow, type=Case, name=CHOICE, id=case_rupwun, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+         <transition cond="true" target="script_naytoy">
+            <icview:log text="action=leg:default, type=Case, name=CHOICE, id=case_rupwun, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="goToBlock_yugjes">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_RP2350_TypeOfString.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_yugjes, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_yugjes, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="goToBlock_wajvif">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_ID3350_RTDProductName.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_wajvif, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_wajvif, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="script_cucfug">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_cucfug, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/menus/RP1400_SerialNumberCheck_yes_ACTION_1.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_cucfug, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="subroutineCall_putyit"/>
+      </state>
+      <state id="script_naytoy">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_naytoy, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/menus/RP1400_SerialNumberCheck_no_ACTION_1.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_naytoy, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="log_ratpoy"/>
+      </state>
+      <state id="subroutineCall_putyit">
+         <datamodel>
+            <data name="intv_subName"
+                  expr="'/resource/VoiceModule/subroutines/voice/PlayPromptSubroutine.diagram'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=SubroutineCall, name=, id=subroutineCall_putyit, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml">
+               <icview:param name="promptConfig" expr="_ws.pl"/>
+            </icview:log>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script><![CDATA[
+					
+						if (intv_subName.search(/^\s*\/resource\/[^\/]+\/subroutines\/[^\/]+\/.+$/) >= 0)
+						{
+							var libName = intv_subName.replace(/^\s*\/resource(\/[^\/]+\/subroutines\/[^\/]+\/).+$/, '$1');
+							
+							if (libName != undefined && libName != '') 
+							{
+								var libMatch = 0;
+								
+								for (var i = _ws.intv_librarySize; i > 0; i--) 
+								{
+									var libEntry = _ws.intv_libraryList[i - 1];
+									
+									if (libEntry == libName) 
+									{
+										libMatch = i;
+										break;
+									}
+								}
+								
+								if (libMatch == 0) 
+								{
+									_ws.intv_libraryList[_ws.intv_librarySize++] = libName;
+								}
+							}
+						}
+					
+				]]></scripting:script>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=SubroutineCall, name=, id=subroutineCall_putyit, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <invoke targettype="x-scxml-component"
+                 src="/VoiceModule/subroutines/voice/PlayPromptSubroutine.scxml">
+            <param name="promptConfig" expr="_ws.pl"/>
+         </invoke>
+         <transition event="subroutineCall_putyit.invoke.done"/>
+         <transition event="DONE" target="goToBlock_yugjes">
+            <icview:log text="action=leg:DONE, type=SubroutineCall, name=, id=subroutineCall_putyit, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+         <transition event="ERROR" target="goToBlock_yugjes">
+            <icview:log text="action=leg:ERROR, type=SubroutineCall, name=, id=subroutineCall_putyit, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="subroutineCall_ketcoc">
+         <datamodel>
+            <data name="intv_subName"
+                  expr="'/resource/VoiceModule/subroutines/voice/PlayPromptSubroutine.diagram'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=SubroutineCall, name=, id=subroutineCall_ketcoc, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml">
+               <icview:param name="promptConfig" expr="_ws.pl"/>
+            </icview:log>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script><![CDATA[
+					
+						if (intv_subName.search(/^\s*\/resource\/[^\/]+\/subroutines\/[^\/]+\/.+$/) >= 0)
+						{
+							var libName = intv_subName.replace(/^\s*\/resource(\/[^\/]+\/subroutines\/[^\/]+\/).+$/, '$1');
+							
+							if (libName != undefined && libName != '') 
+							{
+								var libMatch = 0;
+								
+								for (var i = _ws.intv_librarySize; i > 0; i--) 
+								{
+									var libEntry = _ws.intv_libraryList[i - 1];
+									
+									if (libEntry == libName) 
+									{
+										libMatch = i;
+										break;
+									}
+								}
+								
+								if (libMatch == 0) 
+								{
+									_ws.intv_libraryList[_ws.intv_librarySize++] = libName;
+								}
+							}
+						}
+					
+				]]></scripting:script>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=SubroutineCall, name=, id=subroutineCall_ketcoc, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <invoke targettype="x-scxml-component"
+                 src="/VoiceModule/subroutines/voice/PlayPromptSubroutine.scxml">
+            <param name="promptConfig" expr="_ws.pl"/>
+         </invoke>
+         <transition event="subroutineCall_ketcoc.invoke.done"/>
+         <transition event="DONE" target="goToBlock_wajvif">
+            <icview:log text="action=leg:DONE, type=SubroutineCall, name=, id=subroutineCall_ketcoc, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+         <transition event="ERROR" target="goToBlock_wajvif">
+            <icview:log text="action=leg:ERROR, type=SubroutineCall, name=, id=subroutineCall_ketcoc, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="goToBlock_fobsip">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_RP9050_TransferMessages.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_fobsip, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_fobsip, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="goToBlock_huvril">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_RP9050_TransferMessages.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_huvril, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_huvril, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="script_jugcof">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_jugcof, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/menus/RP1400_SerialNumberCheck_representative_ACTION_1.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_jugcof, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="log_getcow"/>
+      </state>
+      <state id="log_getcow">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=, id=log_getcow, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <log expr="'EVENT - Customer asked for Agent or Pressed 0'" label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=, id=log_getcow, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_codqef">
+            <icview:log text="action=leg:default, type=Log, name=, id=log_getcow, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="if_sobnow">
+         <onentry>
+            <icview:log text="action=entry, type=If, name=, id=if_sobnow, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml">
+               <icview:param name="ContinueTransfer" value="_ws.gateKeeper.getBoolean(&#34;GotProductName&#34;)"/>
+            </icview:log>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=If, name=, id=if_sobnow, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="_ws.gateKeeper.getBoolean(&#34;GotProductName&#34;)" target="script_jugcof">
+            <icview:log text="action=leg:ContinueTransfer, type=If, name=, id=if_sobnow, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+         <transition cond="true" target="script_qakcuf">
+            <icview:log text="action=leg:default, type=If, name=, id=if_sobnow, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="goToBlock_dulget">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_ID3300_DNISCheck.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_dulget, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_dulget, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="script_qakcuf">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_qakcuf, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/menus/RP1400_SerialNumberCheck_representative_ACTION_2.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_qakcuf, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="log_lerroz"/>
+      </state>
+      <state id="log_lerroz">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=, id=log_lerroz, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <log expr="'EVENT - Customer asked for Agent or Pressed 0'" label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=, id=log_lerroz, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_timwah">
+            <icview:log text="action=leg:default, type=Log, name=, id=log_lerroz, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="calc_peqgig">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Notes, id=calc_peqgig, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <assign location="_ws.ivrNotes"
+                    expr="_ws.ivrNotes + ' - Serial Number Exists speech reco max errors'"/>
+            <assign location="dummy" expr="_ws.gateKeeper.setString(&#34;TransferReason&#34;,&#34;MaxErrors&#34;)"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Notes, id=calc_peqgig, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+               <icview:result name="dummy" expr="dummy"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_fobsip">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="calc_codqef">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Notes, id=calc_codqef, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <assign location="_ws.ivrNotes"
+                    expr="_ws.ivrNotes + ' - Serial Number Exists check caller asked for operator'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Notes, id=calc_codqef, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_huvril">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="calc_timwah">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Notes, id=calc_timwah, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <assign location="_ws.ivrNotes"
+                    expr="_ws.ivrNotes + ' - Serial Number Exists caller asked for operator need product name'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Notes, id=calc_timwah, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_dulget">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="log_ratpoy">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=, id=log_ratpoy, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <log expr="'result.result.CHOICE : ' + result.result.CHOICE" label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=, id=log_ratpoy, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="subroutineCall_ketcoc">
+            <icview:log text="action=leg:default, type=Log, name=, id=log_ratpoy, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="script_zenfam">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_zenfam, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/menus/RP1400_SerialNumberCheck_idontknow_ACTION_1.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_zenfam, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="log_fictiz"/>
+      </state>
+      <state id="log_fictiz">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=, id=log_fictiz, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <log expr="'result.result.CHOICE : ' + result.result.CHOICE" label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=, id=log_fictiz, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="subroutineCall_sarzac">
+            <icview:log text="action=leg:default, type=Log, name=, id=log_fictiz, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="subroutineCall_sarzac">
+         <datamodel>
+            <data name="intv_subName"
+                  expr="'/resource/VoiceModule/subroutines/voice/PlayPromptSubroutine.diagram'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=SubroutineCall, name=, id=subroutineCall_sarzac, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml">
+               <icview:param name="promptConfig" expr="_ws.pl"/>
+            </icview:log>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script><![CDATA[
+					
+						if (intv_subName.search(/^\s*\/resource\/[^\/]+\/subroutines\/[^\/]+\/.+$/) >= 0)
+						{
+							var libName = intv_subName.replace(/^\s*\/resource(\/[^\/]+\/subroutines\/[^\/]+\/).+$/, '$1');
+							
+							if (libName != undefined && libName != '') 
+							{
+								var libMatch = 0;
+								
+								for (var i = _ws.intv_librarySize; i > 0; i--) 
+								{
+									var libEntry = _ws.intv_libraryList[i - 1];
+									
+									if (libEntry == libName) 
+									{
+										libMatch = i;
+										break;
+									}
+								}
+								
+								if (libMatch == 0) 
+								{
+									_ws.intv_libraryList[_ws.intv_librarySize++] = libName;
+								}
+							}
+						}
+					
+				]]></scripting:script>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=SubroutineCall, name=, id=subroutineCall_sarzac, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <invoke targettype="x-scxml-component"
+                 src="/VoiceModule/subroutines/voice/PlayPromptSubroutine.scxml">
+            <param name="promptConfig" expr="_ws.pl"/>
+         </invoke>
+         <transition event="subroutineCall_sarzac.invoke.done"/>
+         <transition event="DONE" target="goToBlock_dayyun">
+            <icview:log text="action=leg:DONE, type=SubroutineCall, name=, id=subroutineCall_sarzac, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+         <transition event="ERROR" target="goToBlock_dayyun">
+            <icview:log text="action=leg:ERROR, type=SubroutineCall, name=, id=subroutineCall_sarzac, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="goToBlock_dayyun">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_ID3350_RTDProductName.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_dayyun, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_dayyun, document=/RocheRTD/applications/voice/VB_RP1400_SerialNumberCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+   </state>
+   <final id="documentExit"/>
+</scxml>

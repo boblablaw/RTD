@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>RocheRTD</name>
+	<comment>IC_PROJECT_VERSION=1.5.1.0,</comment>
+	<projects>
+		<project>com.intervoice.cti.library</project>
+		<project>libRocheRSN_ClarifyWS</project>
+		<project>libRocheRSN_VDNWS</project>
+		<project>VoiceModule</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.intervoice.gtf.nature.icxmlProjectBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.intervoice.gtf.nature.icxmlApplicationValidationBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.intervoice.gtf.nature.icxmlProjectNature</nature>
+	</natures>
+</projectDescription>

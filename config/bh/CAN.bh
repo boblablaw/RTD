@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0">
+  <audit savedby="IC Business Hours Configuration" timestamp="Thu May 01 08:35:54 EDT 2014" version="3.0.2.0"/>
+  <domain allow-add="false" domain-type="BH" id="">
+    <description value="IC Business Hours Configuration"/>
+    <display-name value="CAN.bh"/>
+    <property key="Mon">
+      <app-value value="08:00-17:00"/>
+      <description value="Monday"/>
+    </property>
+    <property key="Tue">
+      <app-value value="08:00-17:00"/>
+      <description value="Tuesday"/>
+    </property>
+    <property key="Wed">
+      <app-value value="08:00-17:00"/>
+      <description value="Wednesday"/>
+    </property>
+    <property key="Thu">
+      <app-value value="08:00-17:00"/>
+      <description value="Thursday"/>
+    </property>
+    <property key="Fri">
+      <app-value value="08:00-17:00"/>
+      <description value="Friday"/>
+    </property>
+    <property key="Sat">
+      <app-value value="closed"/>
+      <description value="Saturday"/>
+    </property>
+    <property key="Sun">
+      <app-value value="closed"/>
+      <description value="Sunday"/>
+    </property>
+  </domain>
+</domains>

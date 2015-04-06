@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icxml:icxml xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gtfns="http://www.intervoice.com/gtfns/1.0" xmlns:icxml="http://www.intervoice.com/icxml" xmi:id="_omBCIXKQEeG35bzrS-ychQ" type="voiceBlockType" gtfns:version="1.5.1.0">
+  <icxml:variables xmi:id="_omnfEHKQEeG35bzrS-ychQ">
+    <icxml:variable xmi:id="_omnfEXKQEeG35bzrS-ychQ" name="intv_appType"/>
+    <icxml:variable xmi:id="_omnfEnKQEeG35bzrS-ychQ" name="intv_eventName"/>
+    <icxml:variable xmi:id="_omnfE3KQEeG35bzrS-ychQ" name="intv_eventData"/>
+    <icxml:variable xmi:id="_omnfFHKQEeG35bzrS-ychQ" name="intv_noFieldsInitialized"/>
+    <icxml:variable xmi:id="_omnfFXKQEeG35bzrS-ychQ" name="intv_allFieldsInitialized"/>
+    <icxml:variable xmi:id="_omnfFnKQEeG35bzrS-ychQ" name="intv_atLeastOneSituationExecuted"/>
+    <icxml:variable xmi:id="_omnfF3KQEeG35bzrS-ychQ" name="intv_modalities"/>
+  </icxml:variables>
+  <icxml:form xsi:type="icxml:BlockEntry" xmi:id="_omnfGHKQEeG35bzrS-ychQ" id="blockEntry_vemtap" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:blockEntry xmi:id="_omnfHXKQEeG35bzrS-ychQ" description="Description - ..."/><icxml:comment xmi:id="_omnfHnKQEeG35bzrS-ychQ"/><icxml:default xmi:id="_sM-hwHKQEeG35bzrS-ychQ" target="_rcGecHKQEeG35bzrS-ychQ" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:If" xmi:id="_rcGecHKQEeG35bzrS-ychQ" id="if_hilyuj" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:if xmi:id="_rcGecXKQEeG35bzrS-ychQ" elseLabel="Continue"><icxml:ifValue xmi:id="_Ku_EIJq1EeGL-_zkQgcrtA" expr="_ws.gateKeeper.getString(&quot;Task&quot;).equals(&quot;AgentRequest&quot;)" label="Transfer"/><icxml:ifValue xmi:id="_rcGecnKQEeG35bzrS-ychQ" expr="_ws.gateKeeper.getString(&quot;Task&quot;).equals(&quot;Existing&quot;)" label="Done"/></icxml:if><icxml:comment xmi:id="_rcGec3KQEeG35bzrS-ychQ"/><icxml:default xmi:id="_af3roBsCEeOq4sB_O1PSQA" target="_I9zo0HKREeG35bzrS-ychQ" gtfns:name="Continue" label="Continue"/><icxml:conditional xmi:id="_sNRroKkXEeOcJoJ7l1wrgQ" target="_NiOn1pq1EeGL-_zkQgcrtA" gtfns:name="Transfer" label="Transfer"/><icxml:conditional xmi:id="_yHGB4KkbEeOcJoJ7l1wrgQ" target="_tZMvYKkbEeOcJoJ7l1wrgQ" gtfns:name="Done" label="Done"/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_I9zo0HKREeG35bzrS-ychQ" id="goToBlock_nurviv" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_I9zo0XKREeG35bzrS-ychQ" functionalBlockName="/resource/RocheRTD/applications/voice/VB_ID3600_InstrumentTypeCheck.diagram" description="Description - ..."/><icxml:comment xmi:id="_I9zo0nKREeG35bzrS-ychQ"/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_NiOn1pq1EeGL-_zkQgcrtA" id="goToBlock_zorzab" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_NiOn15q1EeGL-_zkQgcrtA" functionalBlockName="/resource/RocheRTD/applications/voice/VB_RP9050_TransferMessages.diagram" description="Description - ..."/><icxml:comment xmi:id="_NiOn2Jq1EeGL-_zkQgcrtA"/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_tZMvYKkbEeOcJoJ7l1wrgQ" id="goToBlock_qepfoy" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_tZN9gKkbEeOcJoJ7l1wrgQ" functionalBlockName="/resource/RocheRTD/applications/voice/VB_RP9000_AllInfoCollected.diagram" description="Description - ..."/><icxml:comment xmi:id="_tZN9gakbEeOcJoJ7l1wrgQ"/></icxml:form>
+</icxml:icxml>

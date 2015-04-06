@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by Exporter version 1.0 at 2015-04-06 09:45:11.480 GMT-4--><!--Note: Components marked as 'debug' have been removed from the call flow.--><scxml xmlns:icview="http://www.intervoice.com/sce/icview"
+       xmlns:jms="http://www.intervoice.com/sce/action/jms"
+       xmlns:mim="http://www.intervoice.com/sce/action/mim"
+       xmlns:scripting="http://www.intervoice.com/sce/action/scripting"
+       xmlns:xs="http://www.w3.org/2001/XMLSchema"
+       xmlns:process="http://www.intervoice.com/sce/action/process"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:gtfns="http://www.intervoice.com/gtfns/1.0"
+       xmlns="http://www.w3.org/2007/02/scxml"
+       xmlns:icxml="http://www.intervoice.com/icxml"
+       xmlns:xmi="http://www.omg.org/XMI"
+       xmlns:intv="http://www.intervoice.com/scxml"
+       xmlns:vca="http://www.intervoice.com/sce/action/vca"
+       xmlns:ex="http://www.intervoice.com/exporter"
+       initialstate="documentEntry"
+       intv:worksheetscope="applications/voice/Worksheet.ws"
+       version="1.0">
+   <state id="documentEntry">
+      <initial>
+         <transition target="documentEntry_doLocalInit"/>
+      </initial>
+      <state id="documentEntry_doLocalInit">
+         <onentry>
+            <assign location="intv_appType" expr="undefined"/>
+            <rdotype:get xmlns:rdotype="http://www.intervoice.com/sce/action/rdotype"
+                         location="intv_appType"/>
+            <if cond="intv_appType == 'vca'">
+               <assign location="intv_appType" expr="'voice'"/>
+               <elseif cond="intv_appType == 'ccxml'"/>
+               <assign location="intv_appType" expr="'call'"/>
+               <elseif cond="intv_appType == 'UNKNOWN'"/>
+               <assign location="intv_appType" expr="'process'"/>
+            </if>
+         </onentry>
+         <transition target="blockEntry_gersij"/>
+      </state>
+      <datamodel><!--Variables from declaration block: _1Y0gFKkVEeOcJoJ7l1wrgQ--><data name="intv_appType" expr="undefined"/>
+         <data name="intv_eventName" expr="undefined"/>
+         <data name="intv_eventData" expr="undefined"/>
+         <data name="intv_noFieldsInitialized" expr="undefined"/>
+         <data name="intv_allFieldsInitialized" expr="undefined"/>
+         <data name="intv_atLeastOneSituationExecuted" expr="undefined"/>
+         <data name="intv_modalities" expr="undefined"/>
+         <data name="result" expr="undefined"/>
+         <data name="dummy" expr="undefined"/>
+      </datamodel>
+      <state id="blockEntry_gersij">
+         <onentry>
+            <icview:log text="action=entry, type=BlockEntry, name=, id=blockEntry_gersij, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=BlockEntry, name=, id=blockEntry_gersij, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition target="script_coycik"/>
+      </state>
+      <state id="goToBlock_bohxem">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_RP9050_TransferMessages.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_bohxem, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_bohxem, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="case_derdal">
+         <datamodel>
+            <data expr="false" name="case_expr_case_derdal"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=Case, name=GLOBAL, id=case_derdal, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml">
+               <icview:param name="TSS" value="'representative'"/>
+            </icview:log>
+            <assign location="case_expr_case_derdal" expr="result.result.GLOBAL"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Case, name=GLOBAL, id=case_derdal, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="case_expr_case_derdal == 'representative'" target="script_kepxuj">
+            <icview:log text="action=leg:TSS, type=Case, name=GLOBAL, id=case_derdal, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+         </transition>
+         <transition cond="true" target="calc_yohjuw">
+            <icview:log text="action=leg:default, type=Case, name=GLOBAL, id=case_derdal, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+         </transition>
+      </state>
+      <state id="goToBlock_dirmun">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_RP9050_TransferMessages.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_dirmun, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_dirmun, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="goToBlock_xukpen">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_RP9000_AllInfoCollected.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_xukpen, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_xukpen, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="script_kepxuj">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_kepxuj, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/menus/ID3650_NonDPVantageInstrument_representative_ACTION_1.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_kepxuj, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="log_zowxim"/>
+      </state>
+      <state id="log_zowxim">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=, id=log_zowxim, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <log expr="'EVENT - Customer asked for Agent or Pressed 0'" label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=, id=log_zowxim, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_ginhuy">
+            <icview:log text="action=leg:default, type=Log, name=, id=log_zowxim, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+         </transition>
+      </state>
+      <state id="log_debcil">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=Event, id=log_debcil, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <log expr="'EVENT: DP Vantage Call Type Found - Setting VDN Name to: ' + _ws.vdnName"
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=Event, id=log_debcil, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_xukpen">
+            <icview:log text="action=leg:default, type=Log, name=Event, id=log_debcil, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+         </transition>
+      </state>
+      <state id="log_halwuf">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=Copy_1_Event, id=log_halwuf, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <log expr="'EVENT: DPVantage Call Type Not Found.  Instrument Name: ' + _ws.instrumentName "
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=Copy_1_Event, id=log_halwuf, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_kumbim">
+            <icview:log text="action=leg:default, type=Log, name=Copy_1_Event, id=log_halwuf, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+         </transition>
+      </state>
+      <state id="calc_zochig">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_zochig, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <assign location="_ws.instrumentName" expr="''"/>
+            <assign location="dummy" expr="_ws.gateKeeper.setString(&#34;TransferReason&#34;,&#34;MaxErrors&#34;)"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_zochig, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true">
+               <icview:result name="_ws.instrumentName" expr="_ws.instrumentName"/>
+               <icview:result name="dummy" expr="dummy"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="log_halwuf">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="calc_kumbim">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Notes, id=calc_kumbim, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <assign location="_ws.ivrNotes"
+                    expr="_ws.ivrNotes + ' - RTD NON DP Vantage Type max Speech Reco error'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Notes, id=calc_kumbim, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_bohxem">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="calc_ginhuy">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Copy_1_Notes, id=calc_ginhuy, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <assign location="_ws.ivrNotes"
+                    expr="_ws.ivrNotes + ' - RTD NON DP Vantage Type caller asked for operator'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Copy_1_Notes, id=calc_ginhuy, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_dirmun">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="script_coycik">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_coycik, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/menus/ID3650_NonDPVantageInstrument.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_coycik, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="subroutineCall_zejgan"/>
+      </state>
+      <state id="subroutineCall_zejgan">
+         <datamodel>
+            <data name="intv_subName"
+                  expr="'/resource/VoiceModule/subroutines/voice/VoiceModule.diagram'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=SubroutineCall, name=, id=subroutineCall_zejgan, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml">
+               <icview:param name="vm" expr="_ws.vm"/>
+            </icview:log>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script><![CDATA[
+					
+						if (intv_subName.search(/^\s*\/resource\/[^\/]+\/subroutines\/[^\/]+\/.+$/) >= 0)
+						{
+							var libName = intv_subName.replace(/^\s*\/resource(\/[^\/]+\/subroutines\/[^\/]+\/).+$/, '$1');
+							
+							if (libName != undefined && libName != '') 
+							{
+								var libMatch = 0;
+								
+								for (var i = _ws.intv_librarySize; i > 0; i--) 
+								{
+									var libEntry = _ws.intv_libraryList[i - 1];
+									
+									if (libEntry == libName) 
+									{
+										libMatch = i;
+										break;
+									}
+								}
+								
+								if (libMatch == 0) 
+								{
+									_ws.intv_libraryList[_ws.intv_librarySize++] = libName;
+								}
+							}
+						}
+					
+				]]></scripting:script>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=SubroutineCall, name=, id=subroutineCall_zejgan, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true"/>
+         </onexit>
+         <invoke targettype="x-scxml-component"
+                 src="/VoiceModule/subroutines/voice/VoiceModule.scxml">
+            <param name="vm" expr="_ws.vm"/>
+         </invoke>
+         <transition event="subroutineCall_zejgan.invoke.done"/>
+         <transition event="Success" target="case_derdal">
+            <assign location="result" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:Success, type=SubroutineCall, name=, id=subroutineCall_zejgan, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml">
+               <icview:result name="resultVariable" expr="result"/>
+            </icview:log>
+         </transition>
+         <transition event="Error" target="calc_zochig">
+            <assign location="result" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:Error, type=SubroutineCall, name=, id=subroutineCall_zejgan, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml">
+               <icview:result name="resultVariable" expr="result"/>
+            </icview:log>
+         </transition>
+      </state>
+      <state id="calc_yohjuw">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_yohjuw, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"/>
+            <assign location="_ws.vdnName" expr="result.result.CHOICE"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_yohjuw, document=/RocheRTD/applications/voice/VB_ID3650_NonDPVantageInstrument.scxml"
+                        nolog="true">
+               <icview:result name="_ws.vdnName" expr="_ws.vdnName"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="log_debcil">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+   </state>
+   <final id="documentExit"/>
+</scxml>

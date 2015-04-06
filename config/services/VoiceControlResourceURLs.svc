@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+	<audit savedby="junit" timestamp="Wed Sep 12 12:08:10 CDT 2007" version="3.0.0.0" />
+
+	<domain id="com.intervoice.scxml.runtime.voice.resourceURLs" domain-type="SERVICE" allow-add="true">
+        <description value="Voice Control Resource URLs" />
+        <display-name value="Voice Control Resource URLs"/>
+	</domain> 
+
+</domains>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0">
+  <audit savedby="IC Translate Table" timestamp="Fri Mar 06 11:11:25 EST 2015" version="3.0.0.0"/>
+  <domain allow-add="false" displayable="true" domain-type="TT" id="" preprocessor="application/ecmascript">
+    <description value="IC Translate Table"/>
+    <display-name value="EndpointVDN_TT.tt"/>
+    <property key="ridmv347705">
+      <app-value value="'http://ridmv664/IVRVDNRoutingWS.asmx'"/>
+      <description value=""/>
+    </property>
+    <property key="ridmv885924">
+      <app-value value="'http://ridmv209/RSNIVRWS/IVRVDNRoutingWS.asmx'"/>
+      <description value=""/>
+    </property>
+    <property key="ridmv115188">
+      <app-value value="'http://ridmv209/RSNIVRWS/IVRVDNRoutingWS.asmx'"/>
+      <description value=""/>
+    </property>
+  </domain>
+</domains>

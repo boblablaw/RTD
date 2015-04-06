@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0">
+  <audit savedby="IC Translate Table" timestamp="Thu May 01 09:20:57 EDT 2014" version="3.0.0.0"/>
+  <domain allow-add="false" displayable="true" domain-type="TT" id="" preprocessor="application/ecmascript">
+    <description value="IC Translate Table"/>
+    <display-name value="DNIS.tt"/>
+    <property key="testtransferflag">
+      <app-value value="'F'"/>
+      <description value="TestTransferFlag"/>
+    </property>
+    <property key="routebypassflag">
+      <app-value value="'F'"/>
+      <description value="VDN Bypass"/>
+    </property>
+    <property key="routebypassvdn">
+      <app-value value="'11926'"/>
+      <description value="Route Bypass VDN"/>
+    </property>
+    <property key="french">
+      <app-value value="'30459'"/>
+      <description value="French Transfer"/>
+    </property>
+    <property key="rtdclosedvdn">
+      <app-value value="'30484'"/>
+      <description value="RTD Closed VDN"/>
+    </property>
+    <property key="frenchmayo">
+      <app-value value="'30419'"/>
+      <description value="French Mayo VDN"/>
+    </property>
+    <property key="incomingmayo">
+      <app-value value="'18667'"/>
+      <description value="Incoming Mayo DNIS"/>
+    </property>
+    <property key="incomingmayotest">
+      <app-value value="'10378'"/>
+      <description value="Incoming Mayo DNIS Test"/>
+    </property>
+    <property key="telepage">
+      <app-value value="'11544'"/>
+      <description value="Telepage VDN"/>
+    </property>
+  </domain>
+</domains>

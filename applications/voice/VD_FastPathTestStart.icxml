@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icxml:icxml xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gtfns="http://www.intervoice.com/gtfns/1.0" xmlns:icxml="http://www.intervoice.com/icxml" xmi:id="_cPu4oR6KEeCmXNWSPyAURA" type="voiceType" gtfns:version="1.5.1.0">
+  <icxml:variables xmi:id="_cPu4pB6KEeCmXNWSPyAURA">
+    <icxml:variable xmi:id="_cPu4pR6KEeCmXNWSPyAURA" name="intv_appType"/>
+    <icxml:variable xmi:id="_cPu4ph6KEeCmXNWSPyAURA" name="intv_eventName"/>
+    <icxml:variable xmi:id="_cPu4px6KEeCmXNWSPyAURA" name="intv_eventData"/>
+    <icxml:variable xmi:id="_cPu4qB6KEeCmXNWSPyAURA" name="intv_noFieldsInitialized"/>
+    <icxml:variable xmi:id="_cPu4qR6KEeCmXNWSPyAURA" name="intv_allFieldsInitialized"/>
+    <icxml:variable xmi:id="_cPu4qh6KEeCmXNWSPyAURA" name="intv_atLeastOneSituationExecuted"/>
+    <icxml:variable xmi:id="_cPu4qx6KEeCmXNWSPyAURA" name="intv_modalities"/>
+    <icxml:variable xmi:id="__YgZMB6KEeCmXNWSPyAURA" name="result"/>
+  </icxml:variables>
+  <icxml:form xsi:type="icxml:VoiceBegin" xmi:id="_cPu4rB6KEeCmXNWSPyAURA" id="voiceBegin_cazfof" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:comment xmi:id="_cPu4sR6KEeCmXNWSPyAURA"/><icxml:voiceBegin xmi:id="_cPu4sh6KEeCmXNWSPyAURA"/><icxml:default xmi:id="_K1li4OSAEeC6F4zKqw2_ug" target="_LNs2AOSCEeC6F4zKqw2_ug" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:Calculate" xmi:id="_1XSy8B6KEeCmXNWSPyAURA" id="calc_tavbef" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:calculate xmi:id="_1Xcj8B6KEeCmXNWSPyAURA"><icxml:calculateValue xmi:id="_1Xcj8R6KEeCmXNWSPyAURA" result="_ws.gateKeeperTestMode" expr="true"/><icxml:calculateValue xmi:id="_kobCgH1sEeCPhbf5olEffw" result="_ws.gateKeeperTestPath" expr="'D:\\\\Intervoice\\testdata\\FastPath\\'"/></icxml:calculate><icxml:comment xmi:id="_1XmU8B6KEeCmXNWSPyAURA"/><icxml:default xmi:id="_Ea-DkH1sEeCPhbf5olEffw" target="_FWD98EEsEeGJX7eOXN7uCA" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_Gx7d0B6LEeCmXNWSPyAURA" id="goToBlock_foxwez" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_Gx7d0R6LEeCmXNWSPyAURA" functionalBlockName="/resource/RocheRTD/applications/voice/VB_AppStart.diagram" description="Application Start"/><icxml:comment xmi:id="_Gx7d0h6LEeCmXNWSPyAURA"/></icxml:form>
+  <icxml:form xsi:type="icxml:Script" xmi:id="_NnPyMOSAEeC6F4zKqw2_ug" id="script_xujwil" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:script xmi:id="_NnseIOSAEeC6F4zKqw2_ug" inline="true"><icxml:scriptInline xmi:id="_Qb5EEOSAEeC6F4zKqw2_ug"><![CDATA[if (_ws.session.connection.remote.uri.indexOf(':') > 0 ) {
+	var temp = _ws.session.connection.remote.uri.split('@');
+	_ws.gateKeeperCallId = temp[0];
+	_ws.gateKeeper;
+	_ws.gateKeeperTestId = temp[0].split(':')[1];
+	_ws.gateKeeperDBHost = temp[1].split(':')[0];
+	temp = _ws.session.connection.local.uri.split('@');
+	_ws.gateKeeperVuiId = temp[0].split('#')[1];
+} else {
+	_ws.gateKeeperTestId = '1';
+	_ws.gateKeeperCallId = '1:1';
+	_ws.gateKeeperDBHost = '';
+}]]></icxml:scriptInline></icxml:script><icxml:comment xmi:id="_NntFMOSAEeC6F4zKqw2_ug"/><icxml:default xmi:id="_OfrPAOSAEeC6F4zKqw2_ug" target="_lh830OSAEeC6F4zKqw2_ug" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:Log" xmi:id="_lh830OSAEeC6F4zKqw2_ug" id="log_buyyev" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:log xmi:id="_lh9e4OSAEeC6F4zKqw2_ug" logTo="'Default'"><icxml:logValue xmi:id="_lh-F8OSAEeC6F4zKqw2_ug" expr="'Test ID: ' + _ws.gateKeeperTestId"/></icxml:log><icxml:comment xmi:id="_lh-F8eSAEeC6F4zKqw2_ug"/><icxml:default xmi:id="_mokhoOSAEeC6F4zKqw2_ug" target="_1XSy8B6KEeCmXNWSPyAURA" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:Log" xmi:id="_LNs2AOSCEeC6F4zKqw2_ug" id="log_naryiz" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:log xmi:id="_LNs2AeSCEeC6F4zKqw2_ug" logTo="'Default'"><icxml:logValue xmi:id="_LNs2AuSCEeC6F4zKqw2_ug" expr="'ANI: ' + _ws.session.connection.remote.uri"/></icxml:log><icxml:comment xmi:id="_LNs2BOSCEeC6F4zKqw2_ug"/><icxml:default xmi:id="_ML2gUOSCEeC6F4zKqw2_ug" target="_NnPyMOSAEeC6F4zKqw2_ug" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:SubroutineCall" xmi:id="_FWD98EEsEeGJX7eOXN7uCA" id="subroutineCall_gehpub" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:subroutineCallData xmi:id="_FWYHAEEsEeGJX7eOXN7uCA" subroutineName="/resource/VoiceModule/subroutines/voice/FastpathInit.diagram" description="this is a description for a subroutine"><icxml:parameter xmi:id="_1jnEoNzOEeKxUseQOl--hA" name="worksheet" value="_ws" defaultValue="{}"/><icxml:returnLabel xmi:id="_1jw1oNzOEeKxUseQOl--hA" label="default"/></icxml:subroutineCallData><icxml:comment xmi:id="_FWYuEEEsEeGJX7eOXN7uCA"/><icxml:conditional xmi:id="_J0_nYEEsEeGJX7eOXN7uCA" target="_Gx7d0B6LEeCmXNWSPyAURA" gtfns:name="default" label="default"/></icxml:form>
+</icxml:icxml>

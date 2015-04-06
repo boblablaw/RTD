@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by Exporter version 1.0 at 2015-04-06 09:45:11.652 GMT-4--><!--Note: Components marked as 'debug' have been removed from the call flow.--><scxml xmlns:icview="http://www.intervoice.com/sce/icview"
+       xmlns:jms="http://www.intervoice.com/sce/action/jms"
+       xmlns:mim="http://www.intervoice.com/sce/action/mim"
+       xmlns:scripting="http://www.intervoice.com/sce/action/scripting"
+       xmlns:xs="http://www.w3.org/2001/XMLSchema"
+       xmlns:process="http://www.intervoice.com/sce/action/process"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:gtfns="http://www.intervoice.com/gtfns/1.0"
+       xmlns="http://www.w3.org/2007/02/scxml"
+       xmlns:icxml="http://www.intervoice.com/icxml"
+       xmlns:xmi="http://www.omg.org/XMI"
+       xmlns:intv="http://www.intervoice.com/scxml"
+       xmlns:vca="http://www.intervoice.com/sce/action/vca"
+       xmlns:ex="http://www.intervoice.com/exporter"
+       initialstate="documentEntry"
+       intv:worksheetscope="applications/voice/Worksheet.ws"
+       version="1.0">
+   <state id="documentEntry">
+      <initial>
+         <transition target="documentEntry_doLocalInit"/>
+      </initial>
+      <state id="documentEntry_doLocalInit">
+         <onentry>
+            <assign location="intv_appType" expr="undefined"/>
+            <rdotype:get xmlns:rdotype="http://www.intervoice.com/sce/action/rdotype"
+                         location="intv_appType"/>
+            <if cond="intv_appType == 'vca'">
+               <assign location="intv_appType" expr="'voice'"/>
+               <elseif cond="intv_appType == 'ccxml'"/>
+               <assign location="intv_appType" expr="'call'"/>
+               <elseif cond="intv_appType == 'UNKNOWN'"/>
+               <assign location="intv_appType" expr="'process'"/>
+            </if>
+         </onentry>
+         <transition target="blockEntry_kemvax"/>
+      </state>
+      <datamodel><!--Variables from declaration block: _CVFY5G-SEeGtte0T2z7rbQ--><data name="intv_appType" expr="undefined"/>
+         <data name="intv_eventName" expr="undefined"/>
+         <data name="intv_eventData" expr="undefined"/>
+         <data name="intv_noFieldsInitialized" expr="undefined"/>
+         <data name="intv_allFieldsInitialized" expr="undefined"/>
+         <data name="intv_atLeastOneSituationExecuted" expr="undefined"/>
+         <data name="intv_modalities" expr="undefined"/>
+         <data name="dummy" expr="undefined"/>
+      </datamodel>
+      <state id="blockEntry_kemvax">
+         <onentry>
+            <icview:log text="action=entry, type=BlockEntry, name=, id=blockEntry_kemvax, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=BlockEntry, name=, id=blockEntry_kemvax, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition target="subroutineCall_madjov"/>
+      </state>
+      <state id="goToBlock_butdet">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_ID3350_RTDProductName.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_butdet, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_butdet, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="goToBlock_xeszon">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_ID3600_InstrumentTypeCheck.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_xeszon, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_xeszon, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="subroutineCall_madjov">
+         <datamodel>
+            <data name="intv_subName"
+                  expr="'/resource/libRocheRSN_ClarifyWS/subroutines/process/serialLookup.diagram'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=SubroutineCall, name=, id=subroutineCall_madjov, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml">
+               <icview:param name="serialNumber0" expr="_ws.serialNumber"/>
+               <icview:param name="instanceName1" expr="'RTD'"/>
+            </icview:log>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script><![CDATA[
+					
+						if (intv_subName.search(/^\s*\/resource\/[^\/]+\/subroutines\/[^\/]+\/.+$/) >= 0)
+						{
+							var libName = intv_subName.replace(/^\s*\/resource(\/[^\/]+\/subroutines\/[^\/]+\/).+$/, '$1');
+							
+							if (libName != undefined && libName != '') 
+							{
+								var libMatch = 0;
+								
+								for (var i = _ws.intv_librarySize; i > 0; i--) 
+								{
+									var libEntry = _ws.intv_libraryList[i - 1];
+									
+									if (libEntry == libName) 
+									{
+										libMatch = i;
+										break;
+									}
+								}
+								
+								if (libMatch == 0) 
+								{
+									_ws.intv_libraryList[_ws.intv_librarySize++] = libName;
+								}
+							}
+						}
+					
+				]]></scripting:script>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=SubroutineCall, name=, id=subroutineCall_madjov, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <invoke targettype="x-scxml-component"
+                 src="/libRocheRSN_ClarifyWS/subroutines/process/serialLookup.scxml">
+            <param name="serialNumber0" expr="_ws.serialNumber"/>
+            <param name="instanceName1" expr="'RTD'"/>
+         </invoke>
+         <transition event="subroutineCall_madjov.invoke.done"/>
+         <transition event="success" target="script_simyej">
+            <assign location="_ws.serialLookupResult" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:success, type=SubroutineCall, name=, id=subroutineCall_madjov, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml">
+               <icview:result name="resultVariable" expr="_ws.serialLookupResult"/>
+            </icview:log>
+         </transition>
+         <transition event="error" target="calc_gertes">
+            <assign location="_ws.serialLookupResult" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:error, type=SubroutineCall, name=, id=subroutineCall_madjov, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml">
+               <icview:result name="resultVariable" expr="_ws.serialLookupResult"/>
+            </icview:log>
+         </transition>
+      </state>
+      <state id="script_simyej">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_simyej, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/process/WS_ProcessResult_SerialNumberLookup.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_simyej, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="if_lopmax"/>
+      </state>
+      <state id="if_sispiq">
+         <onentry>
+            <icview:log text="action=entry, type=If, name=, id=if_sispiq, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml">
+               <icview:param name="MultipleProducts" value="_ws.errorCode != '0'"/>
+            </icview:log>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=If, name=, id=if_sispiq, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="_ws.errorCode != '0'" target="log_kapdit">
+            <icview:log text="action=leg:MultipleProducts, type=If, name=, id=if_sispiq, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+         </transition>
+         <transition cond="true" target="log_demkab">
+            <icview:log text="action=leg:default, type=If, name=, id=if_sispiq, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="log_demkab">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=Event, id=log_demkab, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <log expr="'EVENT: Serial Lookup Found.   Serial Number: ' + _ws.serialNumber + ' Account Number: ' + _ws.accountNumber + ' Instrument Name: ' + _ws.instrumentName + ' Error Code: ' + _ws.errorCode + ' Error Desc: ' + _ws.errorDesc"
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=Event, id=log_demkab, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_cudbav">
+            <icview:log text="action=leg:default, type=Log, name=Event, id=log_demkab, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="log_colqab">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=Event, id=log_colqab, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <log expr="'EVENT: Serial Lookup Not Found.   Serial Number: ' + _ws.serialNumber + ' Account Number: ' + _ws.accountNumber + ' Instrument Name: ' + _ws.instrumentName + ' Error Code: ' + _ws.errorCode + ' Error Desc: ' + _ws.errorDesc"
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=Event, id=log_colqab, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_limnaq">
+            <icview:log text="action=leg:default, type=Log, name=Event, id=log_colqab, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="log_kapdit">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=Event, id=log_kapdit, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <log expr="'EVENT: Serial Lookup Found Multiple Products.  Account Number: ' + _ws.accountNumber + ' Serial Number: ' + _ws.serialNumber + ' Instrument Name: ' + _ws.instrumentName + ' Error Code: ' + _ws.errorCode + ' Error Desc: ' + _ws.errorDesc"
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=Event, id=log_kapdit, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_liprof">
+            <icview:log text="action=leg:default, type=Log, name=Event, id=log_kapdit, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="calc_cudbav">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_cudbav, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <assign location="_ws.ivrNotes"
+                    expr="'Serial Number: ' + _ws.serialNumber + ' Account Number: ' + _ws.accountNumber + ' Instrument Name: ' + _ws.instrumentName + _ws.ivrNotes"/>
+            <assign location="dummy" expr="_ws.gateKeeper.setBoolean(&#34;GotProductName&#34;,true)"/>
+            <assign location="dummy" expr="_ws.gateKeeper.setBoolean(&#34;SerialNumberFound&#34;,true)"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_cudbav, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+               <icview:result name="dummy" expr="dummy"/>
+               <icview:result name="dummy" expr="dummy"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_xeszon">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="calc_gertes">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Notes, id=calc_gertes, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <assign location="_ws.ivrNotes"
+                    expr="' - Serial Number Lookup web service error' +  ' Error Code: ' + _ws.errorCode + ' Error Desc: ' + _ws.errorDesc + _ws.ivrNotes"/>
+            <assign location="dummy" expr="_ws.gateKeeper.setBoolean(&#34;SerialNumberFound&#34;,false)"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Notes, id=calc_gertes, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+               <icview:result name="dummy" expr="dummy"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="log_colqab">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="calc_liprof">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Notes, id=calc_liprof, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <assign location="_ws.ivrNotes"
+                    expr="_ws.ivrNotes + ' - Serial Number Lookup multiple products returned' +  ' Serial Number: ' + _ws.serialNumber + ' Error Code: ' + _ws.errorCode + ' Error Desc: ' + _ws.errorDesc + _ws.ivrNotes"/>
+            <assign location="dummy"
+                    expr="_ws.gateKeeper.setBoolean(&#34;MultipleProductsAssociatedWithSerialNumber&#34;,true)"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Notes, id=calc_liprof, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+               <icview:result name="dummy" expr="dummy"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_gibzag">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="calc_limnaq">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_limnaq, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <assign location="_ws.serialNumber" expr="''"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_limnaq, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true">
+               <icview:result name="_ws.serialNumber" expr="_ws.serialNumber"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_xudmid">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="calc_gibzag">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=, id=calc_gibzag, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <assign location="_ws.serialNumber" expr="''"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=, id=calc_gibzag, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true">
+               <icview:result name="_ws.serialNumber" expr="_ws.serialNumber"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="goToBlock_butdet">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="goToBlock_xudmid">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_ID3350_RTDProductName.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_xudmid, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_xudmid, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="if_lopmax">
+         <onentry>
+            <icview:log text="action=entry, type=If, name=, id=if_lopmax, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml">
+               <icview:param name="SerialFound" value="_ws.errorCode == '0'"/>
+            </icview:log>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=If, name=, id=if_lopmax, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="_ws.errorCode == '0'" target="if_sispiq">
+            <icview:log text="action=leg:SerialFound, type=If, name=, id=if_lopmax, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+         </transition>
+         <transition cond="true" target="subroutineCall_qixvif">
+            <icview:log text="action=leg:default, type=If, name=, id=if_lopmax, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="log_wiqmaq">
+         <onentry>
+            <icview:log text="action=entry, type=Log, name=, id=log_wiqmaq, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <log expr="'EVENT: Serial Number Not Found.  Serial Number: ' + _ws.caseNumber + ' Account Number: ' + _ws.accountNumber + ' Instrument Name: ' + _ws.instrumentName + ' Error Code: ' + _ws.errorCode + ' Error Desc: ' + _ws.errorDesc"
+                 label="'Default'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Log, name=, id=log_wiqmaq, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="calc_limnaq">
+            <icview:log text="action=leg:default, type=Log, name=, id=log_wiqmaq, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="calc_worxef">
+         <onentry>
+            <icview:log text="action=entry, type=Calculate, name=Notes, id=calc_worxef, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <assign location="_ws.ivrNotes"
+                    expr="' - Serial Number Not Found. Serial Number: ' +_ws.serialNumber + ' Error Code: ' + _ws.errorCode + ' Error Desc: ' + _ws.errorDesc + _ws.ivrNotes"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Calculate, name=Notes, id=calc_worxef, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true">
+               <icview:result name="_ws.ivrNotes" expr="_ws.ivrNotes"/>
+            </icview:log>
+         </onexit>
+         <transition cond="hasNoError()" target="log_wiqmaq">
+            <assign location="intv_eventName" expr="undefined"/>
+         </transition>
+      </state>
+      <state id="script_nidxuf">
+         <onentry intv:abortonerror="true">
+            <icview:log text="action=entry, type=Script, name=, id=script_nidxuf, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script srcexpr="'/scripts/js/process/WS_ProcessResult_SerialNumberLookup.js'"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=Script, name=, id=script_nidxuf, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="hasNoError()" target="if_qivhef"/>
+      </state>
+      <state id="if_qivhef">
+         <onentry>
+            <icview:log text="action=entry, type=If, name=, id=if_qivhef, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml">
+               <icview:param name="SerialFound" value="_ws.errorCode == '0'"/>
+            </icview:log>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=If, name=, id=if_qivhef, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="_ws.errorCode == '0'" target="if_sispiq">
+            <icview:log text="action=leg:SerialFound, type=If, name=, id=if_qivhef, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+         </transition>
+         <transition cond="true" target="calc_worxef">
+            <icview:log text="action=leg:default, type=If, name=, id=if_qivhef, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="subroutineCall_qixvif">
+         <datamodel>
+            <data name="intv_subName"
+                  expr="'/resource/libRocheRSN_ClarifyWS/subroutines/process/serialLookup.diagram'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=SubroutineCall, name=, id=subroutineCall_qixvif, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml">
+               <icview:param name="serialNumber0" expr="_ws.serialNumber"/>
+               <icview:param name="instanceName1" expr="'CAN'"/>
+            </icview:log>
+            <assign location="intv_eventName" expr="undefined"/>
+            <scripting:script><![CDATA[
+					
+						if (intv_subName.search(/^\s*\/resource\/[^\/]+\/subroutines\/[^\/]+\/.+$/) >= 0)
+						{
+							var libName = intv_subName.replace(/^\s*\/resource(\/[^\/]+\/subroutines\/[^\/]+\/).+$/, '$1');
+							
+							if (libName != undefined && libName != '') 
+							{
+								var libMatch = 0;
+								
+								for (var i = _ws.intv_librarySize; i > 0; i--) 
+								{
+									var libEntry = _ws.intv_libraryList[i - 1];
+									
+									if (libEntry == libName) 
+									{
+										libMatch = i;
+										break;
+									}
+								}
+								
+								if (libMatch == 0) 
+								{
+									_ws.intv_libraryList[_ws.intv_librarySize++] = libName;
+								}
+							}
+						}
+					
+				]]></scripting:script>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=SubroutineCall, name=, id=subroutineCall_qixvif, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <invoke targettype="x-scxml-component"
+                 src="/libRocheRSN_ClarifyWS/subroutines/process/serialLookup.scxml">
+            <param name="serialNumber0" expr="_ws.serialNumber"/>
+            <param name="instanceName1" expr="'CAN'"/>
+         </invoke>
+         <transition event="subroutineCall_qixvif.invoke.done"/>
+         <transition event="success" target="script_nidxuf">
+            <assign location="_ws.serialLookupResult" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:success, type=SubroutineCall, name=, id=subroutineCall_qixvif, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml">
+               <icview:result name="resultVariable" expr="_ws.serialLookupResult"/>
+            </icview:log>
+         </transition>
+         <transition event="error" target="calc_gertes">
+            <assign location="_ws.serialLookupResult" expr="_eventdata.intv_returnObject"/>
+            <icview:log text="action=leg:error, type=SubroutineCall, name=, id=subroutineCall_qixvif, document=/RocheRTD/applications/voice/VB_ID3250_MultipleProductsCheck.scxml">
+               <icview:result name="resultVariable" expr="_ws.serialLookupResult"/>
+            </icview:log>
+         </transition>
+      </state>
+   </state>
+   <final id="documentExit"/>
+</scxml>

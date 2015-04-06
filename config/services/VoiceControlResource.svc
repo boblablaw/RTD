@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+	<audit savedby="junit" timestamp="Wed Sep 12 12:08:10 CDT 2007" version="3.0.0.0" />
+	<domain id="com.intervoice.scxml.runtime.voice" domain-type="SERVICE" allow-add="false">
+        <description value="Voice Control Resource Configuration" />
+        <display-name value="Voice Control Resource"/>
+
+        <property key="language">
+            <app-value value="en" />
+            <default-value value="en" />
+            <description value="This attribute specifies the spoken language" />
+        </property>
+
+        <property key="country">
+            <app-value value="US" />
+            <default-value value="US" />
+            <description value="This attribute specifies the spoken country" />
+        </property>
+
+        <property key="speaker">
+            <app-value value="default" />
+            <default-value value="default" />
+            <description value="This attribute specifies the speaker" />
+        </property>
+        
+        <property key="mode" displayable="false">
+            <app-value value="BaseURL" />
+            <default-value value="BaseURL" />
+            <description value="This attribute specifies the mode used to retrieve media" />
+        </property>
+        
+        <property key="audioBaseURL">
+            <app-value value="/RocheRTD_Audio/resources/audio" />
+            <default-value value="/%webappname%/resources/audio" />
+            <description value="This attribute specifies the location (URL) of application message files on a Web server." />
+        </property>
+
+        <property key="audioSet" displayable="false">
+            <app-value value="" />
+            <default-value value="" />
+            <description value="This attribute specifies the application audio set" />
+        </property>
+
+        <property key="systemAudioBaseURL">
+            <app-value value="/RocheRTD_Audio/resources/audio/system" />
+            <default-value value="/%webappname%/resources/audio/system" />
+            <description value="This attribute specifies the location (URL) of system message files on a Web server." />
+        </property>
+
+        <property key="grammarBaseURL">
+            <app-value value="/%webappname%/resources/grammars" />
+            <default-value value="/%webappname%/resources/grammars" />
+            <description value="This attribute specifies the location (URL) of grammar files on a Web server." />
+        </property>
+
+        <property key="grammarSet" displayable="false">
+            <app-value value="" />
+            <default-value value="" />
+            <description value="This attribute specifies the application grammar set" />
+        </property>
+
+		<!-- ================================================================ -->
+		<!-- The properties below are reserved for future use. Do NOT change. --> 
+		<!-- ================================================================ -->
+
+        <property key="resourcesHttpHeaders">
+            <app-value value="Cache-Control: max-age=86400" />
+            <default-value value="Cache-Control: max-age=86400" />
+            <description value="This property is reserved for future use. Do NOT change." />
+        </property>
+
+        <property key="mediaHub_host" displayable="false">
+            <app-value value="" />
+            <default-value value="" />
+            <description value="This property is reserved for future use. Do NOT change." />
+        </property>
+
+        <property key="mediaHub_port" displayable="false">
+            <app-value value="" />
+            <default-value value="" />
+            <description value="This property is reserved for future use. Do NOT change." />
+        </property>
+
+        <property key="mediaHub_sysPsId" displayable="false">
+            <app-value value="%webappname%" />
+            <default-value value="%webappname%" />
+            <description value="This property is reserved for future use. Do NOT change." />
+        </property>
+
+        <property key="mediaHub_spknDialect" displayable="false">
+            <app-value value="1" />
+            <default-value value="1" />
+            <description value="This property is reserved for future use. Do NOT change." />
+        </property>
+
+        <property key="mediaHub_ttsVendorVersion" displayable="false">
+            <app-value value="RealSpeak4.5" />
+            <default-value value="RealSpeak4.5" />
+            <description value="This property is reserved for future use. Do NOT change." />
+        </property>
+	</domain> 
+</domains>

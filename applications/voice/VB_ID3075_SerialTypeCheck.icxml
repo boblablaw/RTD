@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icxml:icxml xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gtfns="http://www.intervoice.com/gtfns/1.0" xmlns:icxml="http://www.intervoice.com/icxml" xmi:id="_twFgIW6nEeGtte0T2z7rbQ" type="voiceBlockType" gtfns:version="1.5.1.0">
+  <icxml:variables xmi:id="_tw1HAG6nEeGtte0T2z7rbQ">
+    <icxml:variable xmi:id="_tw1HAW6nEeGtte0T2z7rbQ" name="intv_appType"/>
+    <icxml:variable xmi:id="_tw1HAm6nEeGtte0T2z7rbQ" name="intv_eventName"/>
+    <icxml:variable xmi:id="_tw1HA26nEeGtte0T2z7rbQ" name="intv_eventData"/>
+    <icxml:variable xmi:id="_tw1HBG6nEeGtte0T2z7rbQ" name="intv_noFieldsInitialized"/>
+    <icxml:variable xmi:id="_tw1HBW6nEeGtte0T2z7rbQ" name="intv_allFieldsInitialized"/>
+    <icxml:variable xmi:id="_tw1HBm6nEeGtte0T2z7rbQ" name="intv_atLeastOneSituationExecuted"/>
+    <icxml:variable xmi:id="_tw1HB26nEeGtte0T2z7rbQ" name="intv_modalities"/>
+  </icxml:variables>
+  <icxml:form xsi:type="icxml:BlockEntry" xmi:id="_tw1HCG6nEeGtte0T2z7rbQ" id="blockEntry_wavded" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:blockEntry xmi:id="_tw1HDW6nEeGtte0T2z7rbQ" description="Description - ..."/><icxml:comment xmi:id="_tw1HDm6nEeGtte0T2z7rbQ"/><icxml:default xmi:id="_35qpAKEMEeGCG7DBVtSBdg" target="_K00I0G-TEeGtte0T2z7rbQ" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:If" xmi:id="_K00I0G-TEeGtte0T2z7rbQ" id="if_solgew" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:if xmi:id="_K09SwG-TEeGtte0T2z7rbQ" elseLabel="RTDAlphaNum"><icxml:ifValue xmi:id="_W1GpoCyTEeOAKd86aGbMBg" expr="_ws.gateKeeper.getString(&quot;StringType&quot;).equals(&quot;Numeric&quot;)" label="RTDNumeric"/></icxml:if><icxml:comment xmi:id="_K09Swm-TEeGtte0T2z7rbQ"/><icxml:default xmi:id="_xq37UJr2EeOtDbip2HXaTA" target="_6q-6EKEMEeGCG7DBVtSBdg" gtfns:name="RTDAlphaNum" label="RTDAlphaNum"/><icxml:conditional xmi:id="_yQ4LYJr2EeOtDbip2HXaTA" target="_w1bX8CyTEeOAKd86aGbMBg" gtfns:name="RTDNumeric" label="RTDNumeric"/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_6q-6EKEMEeGCG7DBVtSBdg" id="goToBlock_havjej" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_6q-6EaEMEeGCG7DBVtSBdg" functionalBlockName="/resource/RocheRTD/applications/voice/VB_ID3175_RTDSerialAlphaNum.diagram" description="Description - ..."/><icxml:comment xmi:id="_6q-6EqEMEeGCG7DBVtSBdg"/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_w1bX8CyTEeOAKd86aGbMBg" id="goToBlock_zecyey" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_w1bX8SyTEeOAKd86aGbMBg" functionalBlockName="/resource/RocheRTD/applications/voice/VB_ID3150_RTDSerialNumber.diagram" description="Description - ..."/><icxml:comment xmi:id="_w1bX8iyTEeOAKd86aGbMBg"/></icxml:form>
+</icxml:icxml>

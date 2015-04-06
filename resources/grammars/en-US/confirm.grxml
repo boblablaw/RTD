@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<grammar version="1.0" 
+	xmlns="http://www.w3.org/2001/06/grammar" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.w3.org/TR/speech-grammar/grammar.xsd" 
+    tag-format='swi-semantics/1.0'
+	xml:lang="en-US" mode="voice" root="root">
+	<!-- ############################################## -->
+	<meta name="ASR_Engine" content="Nuance" />
+	<meta name="Language" content="en-us" />
+	<meta name="Description" content="Grammar references master
+			yes/no rules for specific contexts. Should be
+			customized for per context." />
+	<meta name="IVR_Platform" content="" />
+	<meta name="Associated_Files" content="yesNoMaster_N9.grxml" />
+	<meta name="ASR_Version" content="9.x" />
+	<meta name="Parameters" content="" />
+	<meta name="Usage_Notes" content="" />
+	<!-- ############################################## -->
+	
+<rule id="root" scope='public'>
+	<one-of>
+		<item>
+			<one-of>
+				<item><ruleref uri="yesNoMaster_N9.grxml#yesBasic"/></item>
+				<!--<item weight="0.001"><ruleref uri="#yesPolite"/></item>-->
+              	<!--<item><ruleref uri="yesNoMaster_N9.grxml#yesIDo"/></item> -->
+				<!--<item><ruleref uri="yesNoMaster_N9.grxml#yesIWould"/></item>-->
+				<!--<item><ruleref uri="yesNoMaster_N9.grxml#yesIAm"/></item>-->
+				<item><ruleref uri="yesNoMaster_N9.grxml#yesThatsRight"/></item>
+				<item weight="0.05"><ruleref uri="yesNoMaster_N9.grxml#right"/></item>
+				<item><ruleref uri="yesNoMaster_N9.grxml#yesItIs"/></item>
+				<!--<item><ruleref uri="yesNoMaster_N9.grxml#yesAlternates"/></item>-->
+				<!-- a place holder for prompt-specific yes items -->
+				<!-- <item><ruleref uri="yesNoMaster_N9.grxml#yesCustom"/></item> -->
+			</one-of>
+			
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+		
+		<item>
+			<one-of>
+				<item><ruleref uri="yesNoMaster_N9.grxml#noBasic"/></item>
+				<!--<item><ruleref uri="#noPolite"/></item> -->
+				<!-- <item><ruleref uri="yesNoMaster_N9.grxml#noIDont"/></item>-->
+				<!--<item><ruleref uri="yesNoMaster_N9.grxml#noIWouldnt"/></item>-->
+				<!--<item><ruleref uri="yesNoMaster_N9.grxml#noImNot"/></item>-->
+				<item><ruleref uri="yesNoMaster_N9.grxml#noThatsWrong"/></item>
+				<item><ruleref uri="yesNoMaster_N9.grxml#noItIsnt"/></item>
+				<!-- a place holder for prompt-specific no items -->
+				<!--<item><ruleref uri="yesNoMaster_N9.grxml#noCustom"/></item>-->
+			</one-of>
+			
+			<tag>CHOICE='no'; choice_boolean='false'</tag>
+		</item>
+	</one-of>
+	</rule>
+<!-- _____________________________________________________________________________ -->
+	<!-- polite yes variations-->
+    <!-- local for customization-->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="yesPolite" scope="public">
+		<item>
+			<one-of>
+				<!--<item>yes please</item>
+				<item>yes yes please</item>
+				<item>yes thanks</item>
+				<item>yes yes thanks</item>
+				<item>yes thank you</item>
+				<item>yes yes thank you</item>-->
+				<item>yes ma'am</item> 
+				<item>yes yes ma'am</item>
+				<!--<item>yes sir</item>-->
+				<!--<item>yes yes sir</item>-->
+			</one-of>
+			<tag>CHOICE='yes'; choice_boolean='true'</tag>
+		</item>
+	</rule>
+    
+  
+    <!-- variations on "no thanks" -->
+    <!-- local for customization-->
+	<!--Do not uncomment or add synonyms without tuning results.-->
+	<rule id="noPolite" scope="public">
+		<item>
+			<one-of>	
+				<!--<item>no thank you</item>
+				<item>no thanks</item>
+				<item>nope thanks</item>-->
+				<item>no ma'am</item>
+				<!--<item>no sir</item>-->
+			</one-of>
+			<tag>CHOICE='no'; choice_boolean='false'</tag>
+		</item>
+	</rule>
+
+</grammar>

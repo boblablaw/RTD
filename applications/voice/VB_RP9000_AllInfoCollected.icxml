@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<icxml:icxml xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gtfns="http://www.intervoice.com/gtfns/1.0" xmlns:icxml="http://www.intervoice.com/icxml" xmi:id="_8x-AUW9qEeGtte0T2z7rbQ" type="voiceBlockType" gtfns:version="1.5.1.0">
+  <icxml:variables xmi:id="_8x-AVG9qEeGtte0T2z7rbQ">
+    <icxml:variable xmi:id="_8x-AVW9qEeGtte0T2z7rbQ" name="intv_appType"/>
+    <icxml:variable xmi:id="_8x-AVm9qEeGtte0T2z7rbQ" name="intv_eventName"/>
+    <icxml:variable xmi:id="_8x-AV29qEeGtte0T2z7rbQ" name="intv_eventData"/>
+    <icxml:variable xmi:id="_8x-AWG9qEeGtte0T2z7rbQ" name="intv_noFieldsInitialized"/>
+    <icxml:variable xmi:id="_8x-AWW9qEeGtte0T2z7rbQ" name="intv_allFieldsInitialized"/>
+    <icxml:variable xmi:id="_8x-AWm9qEeGtte0T2z7rbQ" name="intv_atLeastOneSituationExecuted"/>
+    <icxml:variable xmi:id="_8x-AW29qEeGtte0T2z7rbQ" name="intv_modalities"/>
+  </icxml:variables>
+  <icxml:form xsi:type="icxml:BlockEntry" xmi:id="_8x-AXG9qEeGtte0T2z7rbQ" id="blockEntry_xetqoz" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:blockEntry xmi:id="_8x-AYW9qEeGtte0T2z7rbQ" description="Description - ..."/><icxml:comment xmi:id="_8x-AYm9qEeGtte0T2z7rbQ"/><icxml:default xmi:id="__NFX4G9qEeGtte0T2z7rbQ" target="_-cWegG9qEeGtte0T2z7rbQ" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:Script" xmi:id="_-cWegG9qEeGtte0T2z7rbQ" id="script_kerfaw" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:script xmi:id="_-cWegW9qEeGtte0T2z7rbQ" inline="false"><icxml:scriptFile xmi:id="__4cCAG9qEeGtte0T2z7rbQ" filename="'/scripts/js/menus/RP9000_AllInfoCollected.js'"/></icxml:script><icxml:comment xmi:id="_-cWegm9qEeGtte0T2z7rbQ"/><icxml:default xmi:id="_DhVbUG9rEeGtte0T2z7rbQ" target="_C2knEG9rEeGtte0T2z7rbQ" label=""/></icxml:form>
+  <icxml:form xsi:type="icxml:SubroutineCall" xmi:id="_C2knEG9rEeGtte0T2z7rbQ" id="subroutineCall_zacfuq" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:subroutineCallData xmi:id="_C2knEW9rEeGtte0T2z7rbQ" subroutineName="/resource/VoiceModule/subroutines/voice/PlayPromptSubroutine.diagram" description="this is a description for a subroutine"><icxml:parameter xmi:id="_EyZakG9rEeGtte0T2z7rbQ" name="promptConfig" value="_ws.pl"/><icxml:returnLabel xmi:id="_EyjLkG9rEeGtte0T2z7rbQ" label="DONE"/><icxml:returnLabel xmi:id="_EyjLkW9rEeGtte0T2z7rbQ" label="ERROR"/></icxml:subroutineCallData><icxml:comment xmi:id="_C2knEm9rEeGtte0T2z7rbQ"/><icxml:conditional xmi:id="_HGEGUG9rEeGtte0T2z7rbQ" target="_F-YskG9rEeGtte0T2z7rbQ" gtfns:name="DONE" label="DONE"/><icxml:conditional xmi:id="_Hm_pIG9rEeGtte0T2z7rbQ" target="_F-YskG9rEeGtte0T2z7rbQ" gtfns:name="ERROR" label="ERROR"/></icxml:form>
+  <icxml:form xsi:type="icxml:GotoBlock" xmi:id="_F-YskG9rEeGtte0T2z7rbQ" id="goToBlock_tupter" signpost="false" skip="false" debug="false" tunnelExit="false"><icxml:gotoBlock xmi:id="_F-YskW9rEeGtte0T2z7rbQ" functionalBlockName="/resource/RocheRTD/applications/voice/VB_RP9050_TransferMessages.diagram" description="Description - ..."/><icxml:comment xmi:id="_F-Yskm9rEeGtte0T2z7rbQ"/></icxml:form>
+</icxml:icxml>

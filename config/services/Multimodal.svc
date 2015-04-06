@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+	<audit savedby="junit" timestamp="Wed Sep 12 12:08:10 CDT 2007" version="3.0.0.0" />
+	<domain id="com.intervoice.scxml.runtime.multimodal" domain-type="SERVICE" allow-add="false">
+        <description value="Multimodal Configuration" />
+        <display-name value="Multimodal"/>
+ 
+        <property key="enabled">
+            <app-value value="false" />
+            <default-value value="false" />
+            <description value="This attribute specifies whether Multimodal is enabled or not" />
+        </property>
+
+        <property key="templateURL">
+            <app-value value="/%controllerName%" />
+            <default-value value="/%controllerName%" />
+            <description value="This attribute specifies the global application Template URL" />
+        </property>
+
+        <property key="reattachTimeout">
+            <app-value value="10000" />
+            <default-value value="10000" />
+            <description value="This attribute specifies the maximum amount of time (ms) in which the caller can re-join the Multimodal application" />
+        </property>
+
+        <property key="userKeyExpiration">
+            <app-value value="10000" />
+            <default-value value="10000" />
+            <description value="This attribute specifies the maximum amount of time (ms) that a userKey will be valid" />
+        </property>
+
+	</domain> 
+</domains>

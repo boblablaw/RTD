@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<grammar version="1.0" 
+	xmlns="http://www.w3.org/2001/06/grammar" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.w3.org/TR/speech-grammar/grammar.xsd" 
+    tag-format='swi-semantics/1.0'
+	xml:lang="en-US" mode="dtmf" root="root">
+	<!-- ############################################## -->
+	<meta name="Parameters" content="" />
+	<meta name="ASR_Engine" content="Nuance" />
+	<meta name="Language" content="en-us" />
+	<meta name="Description" content="RP1050_LanguageCheck grammar" />
+	<meta name="Usage_Notes" content="" />
+	<meta name="Associated_Files" content="" />
+	<meta name="ASR_Version" content="9.x" />
+	<!-- ############################################## -->
+
+<rule id="root" scope="public">
+	<one-of>
+        <item> 
+            <one-of>
+			<item>1</item>
+            </one-of>
+			<tag>CHOICE='english'</tag>
+		</item>
+       
+        <item> 
+            <one-of>
+			<item>9</item>
+            </one-of>
+			<tag>CHOICE='french'</tag>
+		</item>
+	</one-of>
+</rule>
+</grammar>

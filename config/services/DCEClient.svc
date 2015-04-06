@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+	<audit savedby="DCE-Defaults" timestamp="Wed Sep 26 12:08:10 CDT 2007" version="3.0.0.0" />
+	<domain id="com.intervoice.scxml.dce.client" domain-type="SERVICE">
+        <description value="Datacomm Engine Client" />
+        <display-name value="DCE Client"/>
+        <property key="DCEGateKeeperHost">
+            <app-value value="localhost" />
+            <default-value value="localhost" />
+            <description value="The host name or IP address where DCE Server is installed." />
+        </property>
+        <property key="DCEGateKeeperPort">
+            <app-value value="4000" />
+            <default-value value="4000" />
+            <description value="The listening port number on DCE Server." />
+        </property>
+	</domain>
+</domains>

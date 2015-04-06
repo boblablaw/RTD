@@ -1,0 +1,32 @@
+var _eventdata = {
+   name:"connection.alerting",
+   connectionid:"0",
+   CCXMLconnectionid:"id",
+   protocol:"sip",
+   connection:{
+      connectionid:"ccx:iid-1@samwise+sid-5+in-0",
+      state:"ALERTING",
+      local:"84461@192.168.27.61",
+      remote:"brian@convergys.com",
+      originator:"remote",
+      aai:"",
+      protocol:{
+         name:"sip",
+         version:"0",
+         sip:{
+            headers:{
+               via:"SIP/2.0/UDP 148.181.141.70:5160;rport=5160;branch=z9hG4bK-d8754z-120c2409572b9671-1---d8754z-"
+            },
+            requesturi:"84461@192.168.27.61"
+         }
+      }
+   },
+   info:{
+      PortInfo:"samwise159"
+   },
+   eventid:"ev-2558428",
+   eventsource:"platform",
+   eventsourcetype:"platform"
+};
+
+var intv_eventData = _eventdata;

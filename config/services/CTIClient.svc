@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+	<audit savedby="CTI-Defaults" timestamp="Mon Oct 29 12:08:10 CDT 2007" version="3.0.0.0" />
+	<domain id="com.intervoice.scxml.cti.client" domain-type="SERVICE">
+	    <description value="Computer-Telephony Integration Client" />
+	    <display-name value="CTI Client"/>
+	    <property key="endPointURL" javascript-validators="validateUrl()">
+			<app-value value="http://localhost:8080/axis/services/WSGatewayListener" />
+			<default-value value="http://localhost:8080/axis/services/WSGatewayListener" />
+			<description value="URL for the CTI Gateway Web Service" />
+		</property>
+    </domain>
+</domains>

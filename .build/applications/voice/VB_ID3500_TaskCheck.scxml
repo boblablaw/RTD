@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by Exporter version 1.0 at 2015-04-06 09:45:11.582 GMT-4--><!--Note: Components marked as 'debug' have been removed from the call flow.--><scxml xmlns:icview="http://www.intervoice.com/sce/icview"
+       xmlns:jms="http://www.intervoice.com/sce/action/jms"
+       xmlns:mim="http://www.intervoice.com/sce/action/mim"
+       xmlns:scripting="http://www.intervoice.com/sce/action/scripting"
+       xmlns:xs="http://www.w3.org/2001/XMLSchema"
+       xmlns:process="http://www.intervoice.com/sce/action/process"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:gtfns="http://www.intervoice.com/gtfns/1.0"
+       xmlns="http://www.w3.org/2007/02/scxml"
+       xmlns:icxml="http://www.intervoice.com/icxml"
+       xmlns:xmi="http://www.omg.org/XMI"
+       xmlns:intv="http://www.intervoice.com/scxml"
+       xmlns:vca="http://www.intervoice.com/sce/action/vca"
+       xmlns:ex="http://www.intervoice.com/exporter"
+       initialstate="documentEntry"
+       intv:worksheetscope="applications/voice/Worksheet.ws"
+       version="1.0">
+   <state id="documentEntry">
+      <initial>
+         <transition target="documentEntry_doLocalInit"/>
+      </initial>
+      <state id="documentEntry_doLocalInit">
+         <onentry>
+            <assign location="intv_appType" expr="undefined"/>
+            <rdotype:get xmlns:rdotype="http://www.intervoice.com/sce/action/rdotype"
+                         location="intv_appType"/>
+            <if cond="intv_appType == 'vca'">
+               <assign location="intv_appType" expr="'voice'"/>
+               <elseif cond="intv_appType == 'ccxml'"/>
+               <assign location="intv_appType" expr="'call'"/>
+               <elseif cond="intv_appType == 'UNKNOWN'"/>
+               <assign location="intv_appType" expr="'process'"/>
+            </if>
+         </onentry>
+         <transition target="blockEntry_vemtap"/>
+      </state>
+      <datamodel><!--Variables from declaration block: _omnfEHKQEeG35bzrS-ychQ--><data name="intv_appType" expr="undefined"/>
+         <data name="intv_eventName" expr="undefined"/>
+         <data name="intv_eventData" expr="undefined"/>
+         <data name="intv_noFieldsInitialized" expr="undefined"/>
+         <data name="intv_allFieldsInitialized" expr="undefined"/>
+         <data name="intv_atLeastOneSituationExecuted" expr="undefined"/>
+         <data name="intv_modalities" expr="undefined"/>
+      </datamodel>
+      <state id="blockEntry_vemtap">
+         <onentry>
+            <icview:log text="action=entry, type=BlockEntry, name=, id=blockEntry_vemtap, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"/>
+            <assign location="intv_eventName" expr="undefined"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=BlockEntry, name=, id=blockEntry_vemtap, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition target="if_hilyuj"/>
+      </state>
+      <state id="if_hilyuj">
+         <onentry>
+            <icview:log text="action=entry, type=If, name=, id=if_hilyuj, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml">
+               <icview:param name="Transfer" value="_ws.gateKeeper.getString(&#34;Task&#34;).equals(&#34;AgentRequest&#34;)"/>
+               <icview:param name="Done" value="_ws.gateKeeper.getString(&#34;Task&#34;).equals(&#34;Existing&#34;)"/>
+            </icview:log>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=If, name=, id=if_hilyuj, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition cond="_ws.gateKeeper.getString(&#34;Task&#34;).equals(&#34;AgentRequest&#34;)"
+                     target="goToBlock_zorzab">
+            <icview:log text="action=leg:Transfer, type=If, name=, id=if_hilyuj, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"/>
+         </transition>
+         <transition cond="_ws.gateKeeper.getString(&#34;Task&#34;).equals(&#34;Existing&#34;)"
+                     target="goToBlock_qepfoy">
+            <icview:log text="action=leg:Done, type=If, name=, id=if_hilyuj, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"/>
+         </transition>
+         <transition cond="true" target="goToBlock_nurviv">
+            <icview:log text="action=leg:default, type=If, name=, id=if_hilyuj, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"/>
+         </transition>
+      </state>
+      <state id="goToBlock_nurviv">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_ID3600_InstrumentTypeCheck.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_nurviv, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_nurviv, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="goToBlock_zorzab">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_RP9050_TransferMessages.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_zorzab, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_zorzab, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+      <state id="goToBlock_qepfoy">
+         <datamodel>
+            <data name="src" expr="'/applications/voice/VB_RP9000_AllInfoCollected.scxml'"/>
+         </datamodel>
+         <onentry>
+            <icview:log text="action=entry, type=GotoBlock, name=, id=goToBlock_qepfoy, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"/>
+            <send target="'top'" event="'intv:gotoBlock'" namelist="src"/>
+         </onentry>
+         <onexit>
+            <icview:log text="action=exit, type=GotoBlock, name=, id=goToBlock_qepfoy, document=/RocheRTD/applications/voice/VB_ID3500_TaskCheck.scxml"
+                        nolog="true"/>
+         </onexit>
+         <transition event="send.successful" target="documentExit"/>
+      </state>
+   </state>
+   <final id="documentExit"/>
+</scxml>

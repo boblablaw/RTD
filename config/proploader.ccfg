@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0">
+  <audit savedby="Property Loader Editor" timestamp="Mon Feb 09 16:21:17 EST 2015" version="3.0.0.0"/>
+  <domain-ref url="config/services/ANGClient.svc"/>
+  <domain-ref url="config/services/CCClient.svc"/>
+  <domain-ref url="config/services/CTIClient.svc"/>
+  <domain-ref url="config/services/CallControlIOP.svc"/>
+  <domain-ref url="config/services/DBClient.svc"/>
+  <domain-ref url="config/services/DCEClient.svc"/>
+  <domain-ref url="config/services/HTTPClient.svc"/>
+  <domain-ref url="config/services/Multimodal.svc"/>
+  <domain-ref url="config/services/SCXMLAutostart.svc"/>
+  <domain-ref url="config/services/SCXMLEngineCore.svc"/>
+  <domain-ref url="config/services/SpeechTuning.svc"/>
+  <domain-ref url="config/services/UDSClient.svc"/>
+  <domain-ref url="config/services/VoiceControlResource.svc"/>
+  <domain-ref url="config/services/VoiceControlResourceURLs.svc"/>
+  <domain-ref url="config/tt/DNIS_TT.tt"/>
+  <domain-ref url="config/tt/EndpointVDN_TT.tt"/>
+  <domain-ref url="config/tt/Endpoint_TT.tt"/>
+  <domain-ref url="applications/call/Worksheet.ws"/>
+  <domain-ref url="applications/process/Worksheet.ws"/>
+  <domain-ref url="applications/voice/Worksheet.ws"/>
+  <domain-ref url="config/bh/RTD.bh"/>
+  <domain-ref url="config/bh/CAN.bh"/>
+  <domain-ref url="config/tt/Options.tt"/>
+</domains>

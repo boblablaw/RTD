@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<domains xmlns="http://www.intervoice.com/schema/property/3.0" >
+    <audit savedby="junit" timestamp="Wed Sep 12 12:08:10 CDT 2007" version="3.0.0.0" />
+    <domain id="com.intervoice.scxml.uds.client" domain-type="SERVICE">
+        <description value="Universal Data Store Client" />
+        <display-name value="UDS Client"/>
+        <property key="Type">
+            <app-value value="LOCAL_MAP" />
+            <default-value value="LOCAL_MAP" />
+            <description value="Type of Universal Data Storage" />
+        </property>
+        <property key="URL">
+            <app-value value="http://localhost:8080/com.intervoice.uds.webservice/services/DataStore" />
+            <default-value value="http://localhost:8080/com.intervoice.uds.webservice/services/DataStore" />
+            <description value="HTTP Address of Web Service Storage" />
+        </property>
+    </domain>
+</domains>
